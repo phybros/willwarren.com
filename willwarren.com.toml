@@ -1,0 +1,34 @@
+baseurl = "https://willwarren.com/"
+languageCode = "en-us"
+title = "Will Warren"
+disqusShortname = "willsbrainbackup"
+googleAnalytics = "G-1E1XDTHL71"
+
+theme = "hello-friend"
+
+[params]
+description = "The blog of an engineer from Canada"
+subtitle = "The blog of an engineer from Canada"
+keywords = "The blog of an engineer from Canada"
+
+# from hello-friend
+contentTypeName = "post"
+
+[permalinks]
+posts = '/:year/:month/:slugorfilename/'
+pages = '/:slugorfilename/'
+
+[languages]
+  [languages.en]
+    [languages.en.params.logo]
+      logoText = "Will Warren"
+      logoHomeLink = "/"
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about"
+      [[languages.en.menu.main]]
+        identifier = "archive"
+        name = "Archive"
+        url = "/archive"
