@@ -13,6 +13,7 @@ keywords = "The blog of an engineer from Canada"
 
 # from hello-friend
 contentTypeName = "post"
+defaultTheme = "dark"
 
 [permalinks]
 posts = '/:year/:month/:slugorfilename/'
