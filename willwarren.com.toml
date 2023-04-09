@@ -16,7 +16,7 @@ contentTypeName = "post"
 defaultTheme = "dark"
 
 [permalinks]
-posts = '/:year/:month/:slugorfilename/'
+posts = '/:year/:month/:day/:slugorfilename/'
 pages = '/:slugorfilename/'
 
 [languages]
