@@ -5,6 +5,7 @@ ogimage = "/images/2015/10/12/sql-server-logo.png"
 title = "SQL Server: Enabling Read Committed Snapshot Isolation"
 type = "post"
 tags = ["sql", "database", "sysadmin"]
+description = "Enabling Read Committed Snapshot Isolation (RCSI) is one way to prevent reads (`SELECT` statements) from escalating into full table locks. Depending on your application this can either be a good or a bad thing. Read more to find out how to enable it!"
 
 +++
 
