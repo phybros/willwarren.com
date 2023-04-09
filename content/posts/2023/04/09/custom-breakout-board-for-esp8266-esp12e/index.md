@@ -37,8 +37,8 @@ After spending a lot of time on YouTube learning about
 PCB designs, I ended up with this design:
 
 {{< figure 
-    src="ESP-12EBreakoutPCB.jpeg"
-    link="ESP-12EBreakoutPCB.jpeg"
+    src="cover.jpeg"
+    link="cover.jpeg"
     target="_blank"
     alt="PCB for the breakout board as seen inside KiCAD"
     title="PCB for the breakout board as seen inside KiCAD"
