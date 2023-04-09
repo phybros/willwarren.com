@@ -10,7 +10,7 @@ tags = ["aws", "sysadmin"]
 
 If you're running a high-availability system of some kind, chances are you are into some sort of Load Balancing. If you happen to be writing a Java app, and happen to be using Apache Tomcat as your servlet container, then this tip is for you.
 
-<!-- more -->
+<!--more-->
 
 I had a system which needed to be HTTPS-only but also have the SSL terminated at the load balancer. Naturally, I forwarded the HTTP and HTTPS ports on my Elastic Load Balancer and had my application configured to redirect any insecure connections to an SSL connection. I started having a couple of strange issues where occasionally it would leave the connection on HTTP when it should have been redirecting.
 
