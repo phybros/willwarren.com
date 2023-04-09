@@ -7,6 +7,9 @@ draft: false
 ---
 
 The ESP-12E is an awesome low-power WiFi-capable module with an ESP8266 inside.
+it also supports deep sleep and so can run on batteries for a super long time.
+I grabbed some of these modules from DigiKey and was sad to learn that I
+couldn't just solder some legs on it and get to testing it out.
 
 Unfortunately for prototypers and tinkerers alike, the footprint of the module
 doesn't lend itself well to experimenting with ideas on (for example)
@@ -30,8 +33,8 @@ My first pass at getting something going was this lovecraftian horror:
 
 # KiCAD to the rescue
 
-I had done a couple of basic PCB designs before, but decided to go deeper into
-KiCAD this time and ended up with this design:
+After spending a lot of time on YouTube learning about
+PCB designs, I ended up with this design:
 
 {{< figure 
     src="ESP-12EBreakoutPCB.jpeg"
@@ -42,14 +45,14 @@ KiCAD this time and ended up with this design:
     caption="I tried to make it as symmetrical as possible"
 >}}
 
-I really wanted to maximize the amount of breadboard holes you can access on
+The idea was to maximize the amount of breadboard holes you can access on
 either side of the pins, which is why I ended up going with this strange sort
-of elongated snake type of arrangement.
+of elongated snake arrangement. I tried to apply what I had learned and used
+thicker traces for the `3v3` and `GND` lines as well short traces leading to
+the vias underneath the module itself.
 
-I tried to use thicker traces for the `3v3` and `GND` lines and short traces
-leading to the vias underneath the module itself.
-
-After a few days of waiting, JLCPCB sent me 5 of these:
+After exporting the Gerber files from KiCAD I submitted them to JLCPCB and
+waited. A few days later, I got 5 of these in the mail:
 
 {{< figure 
     src="populated-pcb.jpeg"
@@ -60,9 +63,9 @@ After a few days of waiting, JLCPCB sent me 5 of these:
     caption="Excuse the gnarly soldering job!"
 >}}
 
-Now that it's set up, we can plug it into a breadboard and get it powered up!
+Next thing to do is plug it into a breadboard and get it powered up!
 
-You can pull up/down various pins to control the way in which the module boots:
+You can pull various pins up or down to control the way in which the module boots:
 
 |Mode        |EN  |RST  |GPIO15|GPIO0|
 |------------|:--:|:---:|:----:|:---:|
