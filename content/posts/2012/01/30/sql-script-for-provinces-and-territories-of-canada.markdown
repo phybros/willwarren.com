@@ -9,6 +9,8 @@ tags = ["database", "projects"]
 
 I made this simple SQL script to insert all the provinces of Canada. I'm posting it on here in case I need it in the future, and so anyone else that might find it useful can download it.
 
+<!-- more -->
+
 ```sql
 CREATE TABLE IF NOT EXISTS provinces (
 	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

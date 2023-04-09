@@ -10,12 +10,13 @@ tags = ["sysadmin", "database", "oracle"]
 
 To connect to a box on your network that is running Oracle Database, you will first need to allow connections to Oracle through your firewall.
 
+<!--more-->
+
 If you're running CentOS, RHEL, Fedora or any other Linux variant that uses `iptables`, use the following commands to create a firewall exception (Assuming you're running your listener on port 1521 - check with `sudo lsnrctl status`):
 
 ```bash
 sudo iptables -I INPUT -p tcp --dport 1521 -j ACCEPT
 ```
-<!--more-->
 
 Or to limit the connections to a specific IP address - e.g. `192.168.1.20` or an IP block - e.g. `192.168.1.0/24` use the `-s` option:
 
