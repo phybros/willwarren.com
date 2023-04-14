@@ -3,6 +3,7 @@ title: "Kubernetes at Home"
 date: 2021-07-19T11:38:44-04:00
 draft: false
 tags: [k8s, homelab]
+cover: "/images/2021/07/k9s.png"
 type: "post"
 ---
 
@@ -13,13 +14,6 @@ and memory available on my two-node setup. Ultimately though, because of
 shared storage and other complications with hardware devices, I ended up
 manually scheduling containers onto specific nodes, which totally defeated the
 purpose.
-
-{{< figure
-    src="/images/2021/07/k9s.png"
-    link="/images/2021/07/k9s.png"
-    alt="Screenshot of k9s"
-    title="k9s in action"
->}}
 
 Plus Kubernetes is cooler 😎.
 

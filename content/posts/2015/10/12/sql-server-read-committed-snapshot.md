@@ -1,13 +1,11 @@
-+++
-customstyle = ""
-date = "2015-10-12T14:43:51-04:00"
-ogimage = "/images/2015/10/12/sql-server-logo.png"
-title = "SQL Server: Enabling Read Committed Snapshot Isolation"
-type = "post"
-tags = ["sql", "database", "sysadmin"]
-description = "Enabling Read Committed Snapshot Isolation (RCSI) is one way to prevent reads (`SELECT` statements) from escalating into full table locks. Depending on your application this can either be a good or a bad thing. Read more to find out how to enable it!"
-
-+++
+---
+date: "2015-10-12T14:43:51-04:00"
+ogimage: "/images/2015/10/12/sql-server-logo.png"
+title: "SQL Server: Enabling Read Committed Snapshot Isolation"
+type: "post"
+tags: ["sql", "database", "sysadmin"]
+description: "Enabling Read Committed Snapshot Isolation (RCSI) is one way to prevent reads (`SELECT` statements) from escalating into full table locks. Depending on your application this can either be a good or a bad thing. Read more to find out how to enable it!"
+---
 
 When using Microsoft SQL Server, enabling Read Committed Snapshot Isolation (RCSI) is one way to prevent reads (`SELECT` statements) from escalating into full table locks. Depending on your application this can either be a good or a bad thing. I'm not going to get into the why's and why-nots of each strategy - [this is a good article to read](https://technet.microsoft.com/en-us/library/ms188277.aspx) if you're having a hard time deciding which strategy to choose and why.
 
