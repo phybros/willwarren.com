@@ -5,7 +5,7 @@ draft: false
 tags: [zfs, homelab, storage]
 aliases: ['/2021/08/removing-disk-from-raidz']
 type: "post"
-description: "Need to migrate data from a RAIDZ zpool? Take a drive offline, nuke its identity, create new partition table, format, and voila! Read on."
+description: "Need to migrate data from a RAIDZ zpool? Take a drive offline, nuke its identity, create new partition table, format, and more! Read on."
 ---
 
 You can't remove a disk from a RAIDZ zpool.
