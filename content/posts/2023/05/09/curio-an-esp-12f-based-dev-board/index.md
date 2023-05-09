@@ -1,5 +1,5 @@
 ---
-title: "Curio: an ESP-12F Based Dev Board"
+title: "CURIO: an ESP-12F Based Dev Board"
 date: 2023-05-09
 type: "post"
 tags: [electronics, esp8266, esp12, kicad, pcb]
