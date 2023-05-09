@@ -4,7 +4,7 @@ date: 2023-05-09
 type: "post"
 tags: [electronics, esp8266, esp12, kicad, pcb]
 description: "I made my own dev board with the ESP-12F! Read about what, why, how, the mistakes I made, and the learning I did along the way!"
-cover: 3dtop.jpeg
+cover: cover.jpeg
 useRelativeCover: true
 draft: false
 ---
@@ -163,8 +163,8 @@ holes. Some ESP-12 carrier boards and breakouts I found online actually require
 >}}
 
 {{< figure 
-    src="3dtop.jpeg"
-    link="3dtop.jpeg"
+    src="cover.jpeg"
+    link="cover.jpeg"
     target="_blank"
     alt="3D render of the top view"
     title="3D render of the top view"
