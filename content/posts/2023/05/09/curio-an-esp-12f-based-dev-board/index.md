@@ -28,14 +28,7 @@ The sensors were usually a combination of an ESP-12F (mounted on a [breakout
 board](/2023/04/08/custom-breakout-board-for-esp8266-esp12e/)), resistors, capacitors, and the moisture sensor itself all plugged into
 a mini breadboard.
 
-{{< figure 
-    src="plant-sensor.jpeg"
-    link="plant-sensor.jpeg"
-    target="_blank"
-    alt="Breadboard-based plant sensor in action"
-    title="Breadboard-based plant sensor in action"
-    caption="It works, but it could be better!"
->}}
+[![Breadboard-based plant sensor in action](plant-sensor.jpeg "It works, but it could be better!")](plant-sensor.jpeg)
 
 These sensors spend 99% of their time in Deep Sleep mode and wake up roughly
 every hour to record the latest reading and then go back to sleep.
