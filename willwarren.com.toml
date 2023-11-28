@@ -2,7 +2,6 @@ baseurl = "https://willwarren.com/"
 languageCode = "en-us"
 title = "Will Warren"
 disqusShortname = "willsbrainbackup"
-googleAnalytics = "G-1E1XDTHL71"
 paginate = 5
 theme = "hello-friend"
 
