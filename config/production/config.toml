@@ -3,3 +3,4 @@
 # https://jpanther.github.io/congo/docs/getting-started/
 
 baseURL = "https://willwarren.com/"
+disqusdisqusShortname = 'willsbrainbackup'
