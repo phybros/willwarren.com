@@ -1,3 +1,4 @@
-[submodule "themes/hello-friend"]
-	path = themes/hello-friend
-	url = https://github.com/panr/hugo-theme-hello-friend.git
+[submodule "themes/congo"]
+	path = themes/congo
+	url = https://github.com/jpanther/congo.git
+	branch = stable
