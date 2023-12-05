@@ -1,11 +1,13 @@
-+++
-Description = ""
-date = 2013-06-05
-title = "Transition from glossy to matte UI elements"
-slug = "transition-from-glossy-to-matte-ui-elements"
-tags = ["opinion", "design", "ui"]
-
-+++
+---
+Description: ""
+date: "2013-06-05"
+slug: transition-from-glossy-to-matte-ui-elements
+tags:
+- opinion
+- design
+- ui
+title: Transition from glossy to matte UI elements
+---
 
 Something I noticed as a general trend with modern technology (especially in mobile development) is a trend away from shiny, glossy UI elements like icons and buttons to a more flat, conservative style.
 

@@ -1,12 +1,14 @@
-+++
-date = 2017-10-15
-ogimage = "images/2017/10/redis-logo-lg.jpg"
-ogimagealt = "Redis Logo"
-title = "Redis Cluster Cheatsheet"
-tags = ["sysadmin", "linux", "redis"]
-toc = true
-
-+++
+---
+date: "2017-10-15"
+ogimage: images/2017/10/redis-logo-lg.jpg
+ogimagealt: Redis Logo
+tags:
+- sysadmin
+- linux
+- redis
+title: Redis Cluster Cheatsheet
+toc: true
+---
 
 Redis is very, very good at running as a Highly Available service. It has supported clustering since 3.0.0 was released back in April of 2015. Clustering many redis servers together allows for higher throughput (spreading the load), as well as redundancy (for when servers die unexpectedly).
 

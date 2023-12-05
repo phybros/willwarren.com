@@ -1,11 +1,13 @@
-+++
-Description = ""
-date = 2011-08-30
-title = "An ASCII needle in an Extended ASCII haystack"
-slug = "an-ascii-needle-in-an-extended-ascii-haystack"
-tags = ["java", "coding", "database"]
-
-+++
+---
+Description: ""
+date: "2011-08-30"
+slug: an-ascii-needle-in-an-extended-ascii-haystack
+tags:
+- java
+- coding
+- database
+title: An ASCII needle in an Extended ASCII haystack
+---
 
 I was tasked with writing some code to pull all the research project data that we'd collected over the past 10-15 years into our new J2EE-based product, Kuali Coeus. The legacy system ran off SQL Server which is a lot more forgiving of character encodings and string data in general than the new system (which runs off MySQL).
 

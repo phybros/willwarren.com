@@ -1,10 +1,10 @@
-+++
-date = 2012-11-29
-title = "The craft of code"
-slug = "the-craft-of-code"
-tags = ["discoveries"]
-
-+++
+---
+date: "2012-11-29"
+slug: the-craft-of-code
+tags:
+- discoveries
+title: The craft of code
+---
 
 Came across this great quote from the book The Pragmatic Programmer (which I whole heartedly intend to read after seeing this quote)
 <!--more-->

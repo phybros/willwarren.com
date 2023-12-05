@@ -1,10 +1,10 @@
-+++
-date = 2013-05-23
-title = "A working day's worth of mouse movement"
-slug = "a-working-days-worth-of-mouse-movement"
-tags = ["discoveries"]
-
-+++
+---
+date: "2013-05-23"
+slug: a-working-days-worth-of-mouse-movement
+tags:
+- discoveries
+title: A working day's worth of mouse movement
+---
 
 I recently came across a neat piece of software that maps out your mouse movements and creates artwork out of them. Check out the image below - it's a graph of my mouse movements on my left monitor over a 9 - 5 working day. Click to see full resolution.
 

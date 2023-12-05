@@ -1,9 +1,14 @@
 ---
-title: "Install and Use Multiple JDKs with jenv and Homebrew on macOS"
-description: "For anyone who needs to have many different versions of Java installed on their macOS machine. It goes over installation of `jenv` and various JDKs as well as how to switch between them"
-date: 2023-11-28
-tags: [java, coding, macos]
+date: "2023-11-28"
+description: For anyone who needs to have many different versions of Java installed
+  on their macOS machine. It goes over installation of `jenv` and various JDKs as
+  well as how to switch between them
 draft: false
+tags:
+- java
+- coding
+- macos
+title: Install and Use Multiple JDKs with jenv and Homebrew on macOS
 ---
 
 A short post for anyone who needs to have many different versions of Java installed on their macOS machine. It goes over

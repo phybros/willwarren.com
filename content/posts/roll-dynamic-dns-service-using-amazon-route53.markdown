@@ -1,11 +1,14 @@
-+++
-Description = ""
-date = 2014-07-03
-title = "Roll your own dynamic DNS service using Amazon Route53"
-slug = "roll-dynamic-dns-service-using-amazon-route53"
-tags = ["aws", "projects", "code", "bash"]
-
-+++
+---
+Description: ""
+date: "2014-07-03"
+slug: roll-dynamic-dns-service-using-amazon-route53
+tags:
+- aws
+- projects
+- code
+- bash
+title: Roll your own dynamic DNS service using Amazon Route53
+---
 
 I used the free Dynamic DNS (DDNS) service from Dyn since about 2006 and never had a single issue with it. That all changed when they [phased out their free accounts](http://dyn.com/blog/why-we-decided-to-stop-offering-free-accounts/). I was forced to find an alternative, so I went with No-IP.com which was easy to set up and provided a great service.
 

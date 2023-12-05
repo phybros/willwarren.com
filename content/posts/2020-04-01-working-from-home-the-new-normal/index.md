@@ -1,9 +1,11 @@
-+++
-date = 2020-04-01
-title = "Remote Working: The New Normal?"
-tags = ["irl", "opinion"]
-draft = false
-+++
+---
+date: "2020-04-01"
+draft: false
+tags:
+- irl
+- opinion
+title: 'Remote Working: The New Normal?'
+---
 
 With the recent surge of companies "going remote" due to the COVID-19 outbreak
 I thought it might be nice to share some of the things I've learned about remote

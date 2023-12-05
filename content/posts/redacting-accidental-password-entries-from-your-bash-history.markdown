@@ -1,11 +1,13 @@
-+++
-Description = ""
-date = 2013-08-05
-title = "Redacting accidental password entries from your BASH history"
-slug = "redacting-accidental-password-entries-from-your-bash-history"
-tags = ["bash", "sysadmin", "security"]
-
-+++
+---
+Description: ""
+date: "2013-08-05"
+slug: redacting-accidental-password-entries-from-your-bash-history
+tags:
+- bash
+- sysadmin
+- security
+title: Redacting accidental password entries from your BASH history
+---
 From time to time, I have been known to accidentally type my password into a "username" prompt in a `bash` shell. In that situation, the password you entered is now a part of your `~/.bash_history` file forever, unless you truncate or redact it.<!--more-->
 
 A quick command to do this is

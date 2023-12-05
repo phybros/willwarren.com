@@ -1,11 +1,12 @@
-+++
-Description = ""
-date = 2014-04-21
-title = "Setting up SPF records for Google Apps and Amazon SES"
-slug = "setting-spf-records-google-apps-amazon-ses"
-tags = ["sysadmin", "aws"]
-
-+++
+---
+Description: ""
+date: "2014-04-21"
+slug: setting-spf-records-google-apps-amazon-ses
+tags:
+- sysadmin
+- aws
+title: Setting up SPF records for Google Apps and Amazon SES
+---
 
 **Update:** AWS now sends email using a `Mail-From` domain that they own and control (see [here](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/spf.html)). This means you don't really need to configure your own SPF records at all. I'm leaving this post here for posterity and all the links that already point at it.
 

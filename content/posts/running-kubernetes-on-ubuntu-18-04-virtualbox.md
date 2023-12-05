@@ -1,11 +1,12 @@
-+++
-date = 2019-05-13
-ogimage = "images/2019/05/k8s-logo.png"
-title = "Running Kubernetes on Ubuntu 18.04"
-tags = ["containers", "sysadmin"]
-toc = true
-
-+++
+---
+date: "2019-05-13"
+ogimage: images/2019/05/k8s-logo.png
+tags:
+- containers
+- sysadmin
+title: Running Kubernetes on Ubuntu 18.04
+toc: true
+---
 
 Kubernetes has ostensibly become the defacto leader in the container
 orchestration world. If you want to run a bunch of containers across multiple

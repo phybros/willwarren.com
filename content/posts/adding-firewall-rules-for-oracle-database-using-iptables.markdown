@@ -1,11 +1,13 @@
-+++
-Description = ""
-date = 2014-03-18
-title = "Adding firewall rules for Oracle Database using iptables"
-slug = "adding-firewall-rules-for-oracle-database-using-iptables"
-tags = ["sysadmin", "database", "oracle"]
-
-+++
+---
+Description: ""
+date: "2014-03-18"
+slug: adding-firewall-rules-for-oracle-database-using-iptables
+tags:
+- sysadmin
+- database
+- oracle
+title: Adding firewall rules for Oracle Database using iptables
+---
 
 To connect to a box on your network that is running Oracle Database, you will first need to allow connections to Oracle through your firewall.
 

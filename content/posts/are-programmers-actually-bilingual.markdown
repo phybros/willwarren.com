@@ -1,10 +1,10 @@
-+++
-date = 2012-12-17
-title = "Are programmers actually bilingual?"
-slug = "are-programmers-actually-bilingual"
-tags = ["discoveries"]
-
-+++
+---
+date: "2012-12-17"
+slug: are-programmers-actually-bilingual
+tags:
+- discoveries
+title: Are programmers actually bilingual?
+---
 
 >[There is] Evidence suggesting that young computer programmers have "bilingual brains"
 

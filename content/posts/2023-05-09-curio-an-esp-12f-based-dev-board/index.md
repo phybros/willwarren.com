@@ -1,9 +1,15 @@
 ---
-title: "CURIO: an ESP-12F Based Dev Board"
-date: 2023-05-09
-tags: [electronics, esp8266, esp12, kicad, pcb]
-description: "I made my own dev board with the ESP-12F! Read about what, why, how, the mistakes I made, and the learning I did along the way!"
+date: "2023-05-09"
+description: I made my own dev board with the ESP-12F! Read about what, why, how,
+  the mistakes I made, and the learning I did along the way!
 draft: false
+tags:
+- electronics
+- esp8266
+- esp12
+- kicad
+- pcb
+title: 'CURIO: an ESP-12F Based Dev Board'
 ---
 
 My previous project to create [breakout boards](/2023/04/08/custom-breakout-board-for-esp8266-esp12e/) for ESP-12E and ESP-12F modules

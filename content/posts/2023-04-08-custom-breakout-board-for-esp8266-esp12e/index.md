@@ -1,9 +1,15 @@
 ---
-title: "Custom breakout board for the ESP-12E WiFi Module"
-date: 2023-04-08
-tags: [electronics, esp8266, esp12, kicad]
-description: "ESP-12E is a low-power WiFi module with many capabilities but its 2mm pitch makes it hard to prototype with on breadboards. So I made a custom breakout board!"
+date: "2023-04-08"
+description: ESP-12E is a low-power WiFi module with many capabilities but its 2mm
+  pitch makes it hard to prototype with on breadboards. So I made a custom breakout
+  board!
 draft: false
+tags:
+- electronics
+- esp8266
+- esp12
+- kicad
+title: Custom breakout board for the ESP-12E WiFi Module
 ---
 
 The ESP-12E is an awesome low-power WiFi-capable module with an ESP8266 inside.

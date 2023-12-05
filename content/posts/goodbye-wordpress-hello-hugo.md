@@ -1,11 +1,14 @@
-+++
-tags = ["design", "aws", "opinion", "website"]
-date = 2015-04-05
-title = "Goodbye WordPress; Hello Hugo"
-slug = "goodbye-wordpress-hello-hugo"
-ogimage = "images/2015/04/kittens.jpg"
-
-+++
+---
+date: "2015-04-05"
+ogimage: images/2015/04/kittens.jpg
+slug: goodbye-wordpress-hello-hugo
+tags:
+- design
+- aws
+- opinion
+- website
+title: Goodbye WordPress; Hello Hugo
+---
 
 As part of my regular annual website refresh, I decided to take a pretty drastic step and move from WordPress to a static site generator called [Hugo](http://gohugo.io). I've kept my WordPress install continually up to date since early 2009 and it served me well, but I needed a change. I also went back through the archives and culled all my old blog posts - I only kept the most trafficked and the ones that _Future Will_ might want to reference.<!--more-->
 

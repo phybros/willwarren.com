@@ -1,11 +1,11 @@
-+++
-Description = ""
-date = 2011-08-24
-title = "Earthquake!"
-slug = "earthquake"
-tags = ["irl"]
-
-+++
+---
+Description: ""
+date: "2011-08-24"
+slug: earthquake
+tags:
+- irl
+title: Earthquake!
+---
 
 So there was a 5.9 earthquake outside Richmond, VA yesterday and we felt the tremors all the way up here in Ontario, Canada.
 

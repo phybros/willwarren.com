@@ -1,10 +1,10 @@
-+++
-date = 2018-07-23
-ogimage = "images/2018/07/Screen%20Shot%202018-07-23%20at%2010.44.03.png"
-title = "The Endless Quest to Find the Perfect Note Taking Platform (2018 Edition)"
-tags = ["opinion"]
-
-+++
+---
+date: "2018-07-23"
+ogimage: images/2018/07/Screen%20Shot%202018-07-23%20at%2010.44.03.png
+tags:
+- opinion
+title: The Endless Quest to Find the Perfect Note Taking Platform (2018 Edition)
+---
 
 As I have [written before](https://willwarren.com/2017/10/shell-alias-for-quick-notes/), I’ve used just about every note solution around. Unfortunately I haven’t found a magic bullet (yet). This post is really an exploration into the pros and cons for my own personal workflow and this the things I find important when managing notes. Hopefully after doing this exploration I can actually settle on one platform for the long haul and stop procrastinating by switching note platforms and writing blog posts about it.
 <!--more-->

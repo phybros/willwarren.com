@@ -1,10 +1,11 @@
-+++
-date = 2017-10-18
-title = "Handy shell alias for taking notes"
-ogimage = "images/2017/10/n.png"
-tags = ["opinion", "coding"]
-
-+++
+---
+date: "2017-10-18"
+ogimage: images/2017/10/n.png
+tags:
+- opinion
+- coding
+title: Handy shell alias for taking notes
+---
 
 I keep my personal nodes in a bunch of Markdown files inside a Dropbox folder. I've used just about every note-taking app there is and ended up settling on this system. It's served me really well so far.
 

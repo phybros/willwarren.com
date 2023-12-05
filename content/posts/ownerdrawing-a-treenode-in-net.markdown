@@ -1,11 +1,14 @@
-+++
-Description = ""
-date = 2011-08-12
-title = "OwnerDrawing a TreeNode in .NET"
-slug = "ownerdrawing-a-treenode-in-net"
-tags = ["coding", "projects", "dotnet", "ui"]
-
-+++
+---
+Description: ""
+date: "2011-08-12"
+slug: ownerdrawing-a-treenode-in-net
+tags:
+- coding
+- projects
+- dotnet
+- ui
+title: OwnerDrawing a TreeNode in .NET
+---
 
 I've used the TreeView control in .NET extensively, but one thing I always wanted to be able to do is have "sub titles" on the tree nodes. [Eclipse](http://www.eclipse.org/) uses them extensively on their Package Explorer<!--more-->:
 

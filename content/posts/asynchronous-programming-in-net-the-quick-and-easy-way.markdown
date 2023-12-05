@@ -1,11 +1,13 @@
-+++
-Description = ""
-date = 2011-10-16
-title = "Asynchronous Programming in .NET - The quick and easy way"
-slug = "asynchronous-programming-in-net-the-quick-and-easy-way"
-tags = ["dotnet", "coding", "projects"]
-
-+++
+---
+Description: ""
+date: "2011-10-16"
+slug: asynchronous-programming-in-net-the-quick-and-easy-way
+tags:
+- dotnet
+- coding
+- projects
+title: Asynchronous Programming in .NET - The quick and easy way
+---
 
 When working on a program that has a GUI, it's very important to make sure that the UI is fast and responsive. If your program is performing a lot of long-running actions (writing to a database, making network calls etc.) you should always make sure that the code that is performing those actions is not being executed by the same thread that the GUI is on.<!--more-->
 

@@ -1,11 +1,11 @@
-+++
-Description = ""
-date = 2011-08-18
-title = "Pair Programming - Does it work?"
-slug = "pair-programming-does-it-work"
-tags = ["opinion"]
-
-+++
+---
+Description: ""
+date: "2011-08-18"
+slug: pair-programming-does-it-work
+tags:
+- opinion
+title: Pair Programming - Does it work?
+---
 
 tl;dr - It depends.
 

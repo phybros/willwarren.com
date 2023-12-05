@@ -1,10 +1,15 @@
 ---
-title: "Removing a disk from a RAIDZ"
-date: 2021-08-29
+aliases:
+- /2021/08/removing-disk-from-raidz
+date: "2021-08-29"
+description: Need to migrate data from a RAIDZ zpool? Take a drive offline, nuke its
+  identity, create new partition table, format, and more! Read on.
 draft: false
-tags: [zfs, homelab, storage]
-aliases: ['/2021/08/removing-disk-from-raidz']
-description: "Need to migrate data from a RAIDZ zpool? Take a drive offline, nuke its identity, create new partition table, format, and more! Read on."
+tags:
+- zfs
+- homelab
+- storage
+title: Removing a disk from a RAIDZ
 ---
 
 You can't remove a disk from a RAIDZ zpool.

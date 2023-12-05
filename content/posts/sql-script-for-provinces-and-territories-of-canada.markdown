@@ -1,10 +1,11 @@
-+++
-date = 2012-01-30
-title = "SQL Script for Provinces and Territories of Canada"
-slug = "sql-script-for-provinces-and-territories-of-canada"
-tags = ["database", "projects"]
-
-+++
+---
+date: "2012-01-30"
+slug: sql-script-for-provinces-and-territories-of-canada
+tags:
+- database
+- projects
+title: SQL Script for Provinces and Territories of Canada
+---
 
 I made this simple SQL script to insert all the provinces of Canada. I'm posting it on here in case I need it in the future, and so anyone else that might find it useful can download it.
 

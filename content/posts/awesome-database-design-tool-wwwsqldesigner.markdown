@@ -1,10 +1,11 @@
-+++
-date = 2012-02-02
-title = "Awesome Database Design Tool: wwwsqldesigner"
-slug = "awesome-database-design-tool-wwwsqldesigner"
-tags = ["database", "discoveries"]
-
-+++
+---
+date: "2012-02-02"
+slug: awesome-database-design-tool-wwwsqldesigner
+tags:
+- database
+- discoveries
+title: 'Awesome Database Design Tool: wwwsqldesigner'
+---
 
 I stumbled across this software while trawling the internet looking for good design tools. It's super simple to use and looks great. Because it's web based (written almost entirely in Javascript), you can design without having to have any gigantic software packages installed. Also it's free and open-source which I'm always a fan of!
 

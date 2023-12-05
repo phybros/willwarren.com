@@ -1,12 +1,14 @@
-+++
-date = 2020-03-19
-ogimage = "images/2020/03/boxes.png"
-title = "2020 Website Refresh: More Automation Edition"
-tags = ["website", "howto", "automation"]
-toc = false
-draft = false
-
-+++
+---
+date: "2020-03-19"
+draft: false
+ogimage: images/2020/03/boxes.png
+tags:
+- website
+- howto
+- automation
+title: '2020 Website Refresh: More Automation Edition'
+toc: false
+---
 
 It's been over 10 months since [my last blog post](/2019/05/running-kubernetes-on-ubuntu-18-04-virtualbox/) on here, and I decided it was
 high time for a fresh look at the site. Not to mention I'm on lockdown because

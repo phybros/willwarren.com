@@ -1,8 +1,10 @@
 ---
-title: "Kubernetes at Home"
-date: 2021-07-19
+date: "2021-07-19"
 draft: false
-tags: [k8s, homelab]
+tags:
+- k8s
+- homelab
+title: Kubernetes at Home
 ---
 
 I recently converted my Docker Swarm-based homelab to one powered by Kubernetes.

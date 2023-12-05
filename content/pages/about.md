@@ -1,7 +1,7 @@
 ---
-title: "About me"
 showDate: false
 showReadingTime: false
+title: About me
 ---
 
 My name is Will and I'm from Canada.

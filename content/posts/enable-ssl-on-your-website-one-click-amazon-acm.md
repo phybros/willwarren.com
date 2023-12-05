@@ -1,11 +1,13 @@
-+++
-customstyle = ""
-date = 2016-01-23
-ogimage = "images/2016/01/request-cert.png"
-title = "Enable SSL on Your Website in (Almost) One Click with Amazon ACM"
-tags = ["cloud", "amazon", "security"]
-
-+++
+---
+customstyle: ""
+date: "2016-01-23"
+ogimage: images/2016/01/request-cert.png
+tags:
+- cloud
+- amazon
+- security
+title: Enable SSL on Your Website in (Almost) One Click with Amazon ACM
+---
 
 {{< figure class="float-left" src="/images/2016/01/aws-logo.png" alt="Amazon Web Services Logo" >}}
 

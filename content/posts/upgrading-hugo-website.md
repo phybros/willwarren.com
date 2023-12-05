@@ -1,10 +1,11 @@
-+++
-date = 2018-07-13
-ogimage = ""
-title = "Upgrading a Hugo Website from 0.27 to 0.44"
-tags = ["website", "howto"]
-
-+++
+---
+date: "2018-07-13"
+ogimage: ""
+tags:
+- website
+- howto
+title: Upgrading a Hugo Website from 0.27 to 0.44
+---
 
 This website is powered by Hugo - a static site generator written in Go. [I've written about it before](/2015/04/05/goodbye-wordpress-hello-hugo) and really enjoy using it. Using Hugo, I've removed all the obstacles from getting content out there - now it's just my own laziness in the way...
 

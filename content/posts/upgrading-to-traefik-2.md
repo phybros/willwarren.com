@@ -1,9 +1,13 @@
 ---
-title: "Upgrading a k3s cluster to Traefik 2"
-date: 2021-08-01
+aliases:
+- /2021/08/upgrading-to-traefik-2
+date: "2021-08-01"
 draft: false
-tags: [k8s, homelab, traefik]
-aliases: ['/2021/08/upgrading-to-traefik-2']
+tags:
+- k8s
+- homelab
+- traefik
+title: Upgrading a k3s cluster to Traefik 2
 ---
 
 Up until 1.20, k3s shipped with Traefik 1.7.x built in. Since 1.21, Traefik

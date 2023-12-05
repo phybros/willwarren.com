@@ -1,10 +1,13 @@
-+++
-date = 2012-01-24
-title = "Creating a public API with Apache Thrift"
-slug = "creating-a-public-api-with-apache-thrift"
-tags = ["coding", "projects", "php", "python"]
-
-+++
+---
+date: "2012-01-24"
+slug: creating-a-public-api-with-apache-thrift
+tags:
+- coding
+- projects
+- php
+- python
+title: Creating a public API with Apache Thrift
+---
 
 I recently came across a new client-server technology that really fascinated me. Through my meddlings with CirrusNote, I know that 49% of the effort of writing a good API is coming up with standards (XML formats, rules, schemas etc.), 49% is writing boilerplate code (XML parsing, schema validation etc. etc.) and the other 2% is spent actually writing interesting code like database interaction and cool client-side stuff.
 

@@ -1,11 +1,12 @@
-+++
-Description = ""
-date = 2014-01-27
-title = "Apache Tomcat with SSL behind Amazon ELB"
-slug = "running-apache-tomcat-with-ssl-behind-amazon-elb"
-tags = ["aws", "sysadmin"]
-
-+++
+---
+Description: ""
+date: "2014-01-27"
+slug: running-apache-tomcat-with-ssl-behind-amazon-elb
+tags:
+- aws
+- sysadmin
+title: Apache Tomcat with SSL behind Amazon ELB
+---
 
 If you're running a high-availability system of some kind, chances are you are into some sort of Load Balancing. If you happen to be writing a Java app, and happen to be using Apache Tomcat as your servlet container, then this tip is for you.
 

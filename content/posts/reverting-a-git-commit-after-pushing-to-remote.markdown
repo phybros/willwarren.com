@@ -1,10 +1,11 @@
-+++
-date = 2013-04-20
-title = "Reverting a git commit after pushing to remote"
-slug = "reverting-a-git-commit-after-pushing-to-remote"
-tags = ["git", "coding"]
-
-+++
+---
+date: "2013-04-20"
+slug: reverting-a-git-commit-after-pushing-to-remote
+tags:
+- git
+- coding
+title: Reverting a git commit after pushing to remote
+---
 
 Imagine a scenario where you have a git repo with 2 branches; `master`, the production-ready branch and `dev`, the branch where all the development occurs.
 

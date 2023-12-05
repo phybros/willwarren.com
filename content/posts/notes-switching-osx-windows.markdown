@@ -1,11 +1,11 @@
-+++
-Description = ""
-date = 2014-06-19
-title = "Notes on switching to OSX from Windows"
-slug = "notes-switching-osx-windows"
-tags = ["irl"]
-
-+++
+---
+Description: ""
+date: "2014-06-19"
+slug: notes-switching-osx-windows
+tags:
+- irl
+title: Notes on switching to OSX from Windows
+---
 
 I recently got a new MacBook Pro as my new work machine. As someone who's never used a Mac for any serious length of time, it was quite a culture shock. <!--more-->
 

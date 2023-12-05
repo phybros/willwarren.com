@@ -1,11 +1,14 @@
-+++
-Description = ""
-date = 2013-06-06
-title = "Timing PHP code using a simple stopwatch class"
-slug = "timing-php-code-using-a-simple-stopwatch-class"
-tags = ["projects", "code", "php", "perf"]
-
-+++
+---
+Description: ""
+date: "2013-06-06"
+slug: timing-php-code-using-a-simple-stopwatch-class
+tags:
+- projects
+- code
+- php
+- perf
+title: Timing PHP code using a simple stopwatch class
+---
 
 If you're writing a performance-focused app, it's nice to be able to time how long various pieces of code take to execute. Below is the class I use (called `StopWatch`) and a really simple example of how I use it.<!--more-->
 

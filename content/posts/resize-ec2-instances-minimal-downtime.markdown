@@ -1,11 +1,12 @@
-+++
-date = 2014-07-15
-title = "Resize your EC2 instances with minimal downtime"
-slug = "resize-ec2-instances-minimal-downtime"
-tags = ["aws", "sysadmin"]
-ogimage = "images/2014/07/Screenshot-2014-07-15-14.26.45.png"
-
-+++
+---
+date: "2014-07-15"
+ogimage: images/2014/07/Screenshot-2014-07-15-14.26.45.png
+slug: resize-ec2-instances-minimal-downtime
+tags:
+- aws
+- sysadmin
+title: Resize your EC2 instances with minimal downtime
+---
 
 Amazon Web Services (AWS) provides a really great service-oriented way of creating virtual machines in the cloud with their Elastic Cloud Compute (EC2) system. There's many reasons you'd want to increase or decrease the size of an EC2 instance on AWS. Maybe you misjudged how much traffic you'd be getting, or maybe you need more horsepower to finish a certain workload in a shorter time.
 

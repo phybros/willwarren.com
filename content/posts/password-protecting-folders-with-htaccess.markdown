@@ -1,10 +1,10 @@
-+++
-date = 2011-12-16
-title = "Password protecting folders with .htaccess"
-slug = "password-protecting-folders-with-htaccess"
-tags = ["sysadmin"]
-
-+++
+---
+date: "2011-12-16"
+slug: password-protecting-folders-with-htaccess
+tags:
+- sysadmin
+title: Password protecting folders with .htaccess
+---
 
 I always forget how to do this, so I'm posting it on here for posterity. Sometimes it's useful to password protect a folder or files on your web server. If the web server is Apache, then you can use a couple of files - `.htaccess` and `.htpasswd` - to achieve this.<!--more-->
 

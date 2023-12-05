@@ -1,11 +1,11 @@
-+++
-customstyle = ""
-date = 2015-07-08
-ogimage = "/images/2015/07/homer-shaking-fist.gif"
-title = "Creating Sublime Documentation with Markdown and Pandoc"
-tags = ["coding"]
-
-+++
+---
+customstyle: ""
+date: "2015-07-08"
+ogimage: /images/2015/07/homer-shaking-fist.gif
+tags:
+- coding
+title: Creating Sublime Documentation with Markdown and Pandoc
+---
 
 Documentation is one of those things that's easy to down-prioritize to the very bottom of your todo list, even though it could be one of the most important tasks that you undertake in your day to day job.
 
