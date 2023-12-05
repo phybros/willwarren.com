@@ -1,6 +1,6 @@
 +++
 Description = ""
-date = "2014-06-19 15:00:40+00:00"
+date = 2014-06-19
 title = "Notes on switching to OSX from Windows"
 slug = "notes-switching-osx-windows"
 tags = ["irl"]

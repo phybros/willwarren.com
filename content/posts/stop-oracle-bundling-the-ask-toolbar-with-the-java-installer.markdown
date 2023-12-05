@@ -1,5 +1,5 @@
 +++
-date = "2013-02-10 15:24:56+00:00"
+date = 2013-02-10
 title = "Stop Oracle bundling the Ask toolbar with the Java installer"
 slug = "stop-oracle-bundling-the-ask-toolbar-with-the-java-installer"
 tags = ["discoveries"]

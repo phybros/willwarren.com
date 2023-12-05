@@ -1,6 +1,6 @@
 +++
 Description = ""
-date = "2011-11-14 08:58:43+00:00"
+date = 2011-11-14
 title = "Indianapolis Skyline"
 slug = "indianapolis-skyline"
 tags = ["irl", "photo"]

@@ -1,5 +1,5 @@
 +++
-date = "2012-02-02 11:23:17+00:00"
+date = 2012-02-02
 title = "Awesome Database Design Tool: wwwsqldesigner"
 slug = "awesome-database-design-tool-wwwsqldesigner"
 tags = ["database", "discoveries"]

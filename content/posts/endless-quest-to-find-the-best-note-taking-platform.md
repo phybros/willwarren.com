@@ -1,5 +1,5 @@
 +++
-date = "2018-07-23T05:30:00-05:00"
+date = 2018-07-23
 ogimage = "images/2018/07/Screen%20Shot%202018-07-23%20at%2010.44.03.png"
 title = "The Endless Quest to Find the Perfect Note Taking Platform (2018 Edition)"
 tags = ["opinion"]

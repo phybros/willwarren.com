@@ -1,6 +1,6 @@
 +++
 Description = ""
-date = "2014-01-27 15:26:10+00:00"
+date = 2014-01-27
 title = "Apache Tomcat with SSL behind Amazon ELB"
 slug = "running-apache-tomcat-with-ssl-behind-amazon-elb"
 tags = ["aws", "sysadmin"]

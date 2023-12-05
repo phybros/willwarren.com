@@ -1,6 +1,6 @@
 ---
 title: "Kubernetes at Home"
-date: 2021-07-19T11:38:44-04:00
+date: 2021-07-19
 draft: false
 tags: [k8s, homelab]
 ---

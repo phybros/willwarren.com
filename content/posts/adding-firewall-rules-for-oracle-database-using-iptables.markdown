@@ -1,6 +1,6 @@
 +++
 Description = ""
-date = "2014-03-18 10:55:29+00:00"
+date = 2014-03-18
 title = "Adding firewall rules for Oracle Database using iptables"
 slug = "adding-firewall-rules-for-oracle-database-using-iptables"
 tags = ["sysadmin", "database", "oracle"]

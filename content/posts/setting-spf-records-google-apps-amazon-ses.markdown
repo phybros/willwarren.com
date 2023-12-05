@@ -1,6 +1,6 @@
 +++
 Description = ""
-date = "2014-04-21 11:07:09+00:00"
+date = 2014-04-21
 title = "Setting up SPF records for Google Apps and Amazon SES"
 slug = "setting-spf-records-google-apps-amazon-ses"
 tags = ["sysadmin", "aws"]

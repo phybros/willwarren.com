@@ -1,6 +1,6 @@
 +++
 Description = ""
-date = "2011-08-24 16:47:53+00:00"
+date = 2011-08-24
 title = "Earthquake!"
 slug = "earthquake"
 tags = ["irl"]

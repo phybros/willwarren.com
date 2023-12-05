@@ -1,6 +1,6 @@
 +++
 Description = ""
-date = "2011-08-12 14:29:12+00:00"
+date = 2011-08-12
 title = "OwnerDrawing a TreeNode in .NET"
 slug = "ownerdrawing-a-treenode-in-net"
 tags = ["coding", "projects", "dotnet", "ui"]

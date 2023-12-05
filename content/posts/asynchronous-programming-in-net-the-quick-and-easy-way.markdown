@@ -1,6 +1,6 @@
 +++
 Description = ""
-date = "2011-10-16 09:15:19+00:00"
+date = 2011-10-16
 title = "Asynchronous Programming in .NET - The quick and easy way"
 slug = "asynchronous-programming-in-net-the-quick-and-easy-way"
 tags = ["dotnet", "coding", "projects"]

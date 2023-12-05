@@ -1,6 +1,6 @@
 ---
 title: "Upgrading a k3s cluster to Traefik 2"
-date: 2021-08-01T11:00:00-04:00
+date: 2021-08-01
 draft: false
 tags: [k8s, homelab, traefik]
 aliases: ['/2021/08/upgrading-to-traefik-2']

@@ -1,5 +1,5 @@
 +++
-date = "2017-10-18T22:50:12-04:00"
+date = 2017-10-18
 title = "Handy shell alias for taking notes"
 ogimage = "images/2017/10/n.png"
 tags = ["opinion", "coding"]

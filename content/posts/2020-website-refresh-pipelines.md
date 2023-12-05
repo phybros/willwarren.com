@@ -1,5 +1,5 @@
 +++
-date = "2020-03-19T10:30:00-04:00"
+date = 2020-03-19
 ogimage = "images/2020/03/boxes.png"
 title = "2020 Website Refresh: More Automation Edition"
 tags = ["website", "howto", "automation"]

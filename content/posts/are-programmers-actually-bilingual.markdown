@@ -1,5 +1,5 @@
 +++
-date = "2012-12-17 16:40:31+00:00"
+date = 2012-12-17
 title = "Are programmers actually bilingual?"
 slug = "are-programmers-actually-bilingual"
 tags = ["discoveries"]

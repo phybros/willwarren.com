@@ -1,5 +1,5 @@
 +++
-date = 2020-04-01T14:01:37-04:00
+date = 2020-04-01
 title = "Remote Working: The New Normal?"
 tags = ["irl", "opinion"]
 draft = false

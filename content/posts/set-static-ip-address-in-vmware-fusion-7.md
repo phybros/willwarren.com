@@ -1,5 +1,5 @@
 +++
-date = "2015-04-02T10:49:15-04:00"
+date = 2015-04-02
 ogimage = "images/2015/04/Screenshot 2015-04-03 10.47.44.png"
 title = "Set a Static IP Address in VMware Fusion 7"
 tags = ["discoveries", "sysadmin"]

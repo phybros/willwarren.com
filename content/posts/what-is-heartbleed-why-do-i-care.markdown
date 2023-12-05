@@ -1,5 +1,5 @@
 +++
-date = "2014-04-09 16:39:24+00:00"
+date = 2014-04-09
 title = "What is Heartbleed and why do I care?"
 slug = "what-is-heartbleed-why-do-i-care"
 tags = ["sysadmin", "security"]

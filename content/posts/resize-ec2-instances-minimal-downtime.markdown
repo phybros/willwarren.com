@@ -1,5 +1,5 @@
 +++
-date = "2014-07-15 15:28:47+00:00"
+date = 2014-07-15
 title = "Resize your EC2 instances with minimal downtime"
 slug = "resize-ec2-instances-minimal-downtime"
 tags = ["aws", "sysadmin"]

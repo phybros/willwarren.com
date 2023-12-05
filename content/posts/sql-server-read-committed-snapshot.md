@@ -1,5 +1,5 @@
 ---
-date: "2015-10-12T14:43:51-04:00"
+date: 2015-10-12
 ogimage: "/images/2015/10/12/sql-server-logo.png"
 title: "SQL Server: Enabling Read Committed Snapshot Isolation"
 tags: ["sql", "database", "sysadmin"]

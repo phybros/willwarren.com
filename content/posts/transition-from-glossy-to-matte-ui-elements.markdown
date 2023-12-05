@@ -1,6 +1,6 @@
 +++
 Description = ""
-date = "2013-06-05 16:53:35+00:00"
+date = 2013-06-05
 title = "Transition from glossy to matte UI elements"
 slug = "transition-from-glossy-to-matte-ui-elements"
 tags = ["opinion", "design", "ui"]

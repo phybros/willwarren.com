@@ -1,6 +1,6 @@
 +++
 Description = ""
-date = "2013-08-05 16:02:06+00:00"
+date = 2013-08-05
 title = "Redacting accidental password entries from your BASH history"
 slug = "redacting-accidental-password-entries-from-your-bash-history"
 tags = ["bash", "sysadmin", "security"]

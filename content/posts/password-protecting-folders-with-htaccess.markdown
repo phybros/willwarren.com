@@ -1,5 +1,5 @@
 +++
-date = "2011-12-16 08:46:14+00:00"
+date = 2011-12-16
 title = "Password protecting folders with .htaccess"
 slug = "password-protecting-folders-with-htaccess"
 tags = ["sysadmin"]

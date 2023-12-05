@@ -1,6 +1,6 @@
 +++
 Description = ""
-date = "2014-07-03 22:29:46+00:00"
+date = 2014-07-03
 title = "Roll your own dynamic DNS service using Amazon Route53"
 slug = "roll-dynamic-dns-service-using-amazon-route53"
 tags = ["aws", "projects", "code", "bash"]

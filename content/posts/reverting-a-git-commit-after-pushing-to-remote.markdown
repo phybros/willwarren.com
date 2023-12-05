@@ -1,5 +1,5 @@
 +++
-date = "2013-04-20 11:01:08+00:00"
+date = 2013-04-20
 title = "Reverting a git commit after pushing to remote"
 slug = "reverting-a-git-commit-after-pushing-to-remote"
 tags = ["git", "coding"]

@@ -1,6 +1,6 @@
 +++
 Description = ""
-date = "2011-08-30 02:00:00+00:00"
+date = 2011-08-30
 title = "An ASCII needle in an Extended ASCII haystack"
 slug = "an-ascii-needle-in-an-extended-ascii-haystack"
 tags = ["java", "coding", "database"]

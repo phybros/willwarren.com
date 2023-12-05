@@ -1,5 +1,5 @@
 +++
-date = "2017-10-15T21:07:46-04:00"
+date = 2017-10-15
 ogimage = "images/2017/10/redis-logo-lg.jpg"
 ogimagealt = "Redis Logo"
 title = "Redis Cluster Cheatsheet"

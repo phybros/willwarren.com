@@ -1,5 +1,5 @@
 +++
-date = "2019-05-13T10:30:00-05:00"
+date = 2019-05-13
 ogimage = "images/2019/05/k8s-logo.png"
 title = "Running Kubernetes on Ubuntu 18.04"
 tags = ["containers", "sysadmin"]

@@ -1,6 +1,6 @@
 +++
 customstyle = ""
-date = "2016-01-23T16:43:41-05:00"
+date = 2016-01-23
 ogimage = "images/2016/01/request-cert.png"
 title = "Enable SSL on Your Website in (Almost) One Click with Amazon ACM"
 tags = ["cloud", "amazon", "security"]

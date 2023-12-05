@@ -1,5 +1,5 @@
 +++
-date = "2012-11-29 16:40:46+00:00"
+date = 2012-11-29
 title = "The craft of code"
 slug = "the-craft-of-code"
 tags = ["discoveries"]

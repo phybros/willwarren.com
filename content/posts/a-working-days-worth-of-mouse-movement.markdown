@@ -1,5 +1,5 @@
 +++
-date = "2013-05-23 15:18:38+00:00"
+date = 2013-05-23
 title = "A working day's worth of mouse movement"
 slug = "a-working-days-worth-of-mouse-movement"
 tags = ["discoveries"]

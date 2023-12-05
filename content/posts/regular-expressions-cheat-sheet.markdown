@@ -1,6 +1,6 @@
 +++
 Description = ""
-date = "2011-04-16 16:40:33+00:00"
+date = 2011-04-16
 title = "Regular Expressions Cheat Sheet"
 slug = "regular-expressions-cheat-sheet"
 tags = ["coding", "discoveries", "regex"]

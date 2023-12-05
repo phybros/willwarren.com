@@ -1,5 +1,5 @@
 +++
-date = "2018-07-13T10:30:00-05:00"
+date = 2018-07-13
 ogimage = ""
 title = "Upgrading a Hugo Website from 0.27 to 0.44"
 tags = ["website", "howto"]

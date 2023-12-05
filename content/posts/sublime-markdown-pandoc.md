@@ -1,6 +1,6 @@
 +++
 customstyle = ""
-date = "2015-07-08T19:53:32-04:00"
+date = 2015-07-08
 ogimage = "/images/2015/07/homer-shaking-fist.gif"
 title = "Creating Sublime Documentation with Markdown and Pandoc"
 tags = ["coding"]

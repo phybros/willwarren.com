@@ -1,6 +1,6 @@
 +++
 tags = ["design", "aws", "opinion", "website"]
-date = "2015-04-05T10:48:24-04:00"
+date = 2015-04-05
 title = "Goodbye WordPress; Hello Hugo"
 slug = "goodbye-wordpress-hello-hugo"
 ogimage = "images/2015/04/kittens.jpg"

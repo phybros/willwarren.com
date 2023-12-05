@@ -1,6 +1,6 @@
 ---
 title: "Removing a disk from a RAIDZ"
-date: 2021-08-29T11:38:44-04:00
+date: 2021-08-29
 draft: false
 tags: [zfs, homelab, storage]
 aliases: ['/2021/08/removing-disk-from-raidz']

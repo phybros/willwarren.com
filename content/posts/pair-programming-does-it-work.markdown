@@ -1,6 +1,6 @@
 +++
 Description = ""
-date = "2011-08-18 02:56:53+00:00"
+date = 2011-08-18
 title = "Pair Programming - Does it work?"
 slug = "pair-programming-does-it-work"
 tags = ["opinion"]

@@ -1,5 +1,5 @@
 +++
-date = "2012-01-30 18:48:23+00:00"
+date = 2012-01-30
 title = "SQL Script for Provinces and Territories of Canada"
 slug = "sql-script-for-provinces-and-territories-of-canada"
 tags = ["database", "projects"]
