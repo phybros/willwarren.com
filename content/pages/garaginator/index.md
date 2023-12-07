@@ -69,10 +69,11 @@ Wifi credentials and the HomeKit pairing code are set by you during setup!
 
 ### Is this the same thing as ratgdo?
 
-GARAGINATOR achieves pretty much the exact same end result as
-[ratgdo](https://paulwieland.github.io/ratgdo/), yes! GARAGINATOR strives to be
-super simple to set up, even for non-technies while ratgdo is a lot
-more mature and supports a wider range of openers.
+GARAGINATOR achieves a similar end result as [ratgdo](https://paulwieland.github.io/ratgdo/)
+(control of your garage door) but they work in quite different ways.
+
+GARAGINATOR strives to be super simple to set up, even for non-techies
+while ratgdo is a lot more capable, mature, and supports a wider range of openers.
 
 ### How can I get one?
 
