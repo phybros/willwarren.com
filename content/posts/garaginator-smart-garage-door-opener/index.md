@@ -1,8 +1,16 @@
 ---
-showDate: false
-showReadingTime: false
 title: "GARAGINATOR: a HomeKit Compatible Smart Garage Door Opener"
+date: 2023-12-07
+tags:
+- electronics
+- home-automation
+draft: false
 ---
+
+## Updated Jan 15th, 2024 ✨
+
+* Check out the GARAGINATOR docs [here](/garaginator)!
+* GARAGINATOR is now available to buy at <https://garaginator.square.site>!
 
 ## Updated Dec 8, 2023 ✨
 
@@ -89,14 +97,3 @@ while ratgdo is a lot more capable, mature, and supports a wider range of opener
   your own!
 - If you are interested in buying a GARAGINATOR please join the waitlist here: <https://garaginator.square.site>
 
-
-<script>
-    (function(b,d,h,e,f,a,c){a=d.getElementsByTagName("script");c=!1;
-    var k=e.substring(e.lastIndexOf("/")+1);b.formIds=b.formIds?b.formIds:[];
-    for(var g=0;g<a.length;g++)-1<a[g].src.indexOf(k)&&(c=!0);b[f]&&(b.formIds=b.formIds.concat(b[f].form_ids));
-    b.formObject=f;b[f]=function(a){if(a.form_ids){
-        var c=b.formIds.concat(a.form_ids),d=[],e;for(e in c)c.hasOwnProperty(e)&&-1==d.indexOf(c[e])&&d.push(c[e]);
-        a.form_ids=d}b[f]=a};c||(a=d.createElement(h),c=d.getElementsByTagName(h)[0],a.async=!0,a.src=e,c.parentNode.insertBefore(a,
-            c))})(window,document,'script', '//cdn3.editmysite.com/app/marketing/js/dist/lead-form.js','leadForm');
-    leadForm({ form_ids: ["cc729638-8053-4321-9f62-6cf37bd3e66b"], preview: 0, asset_domain: 'cdn3.editmysite.com/app/marketing', data_domain: 'www.weebly.com/app/marketing' });
-</script>
