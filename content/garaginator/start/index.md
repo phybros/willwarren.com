@@ -121,6 +121,8 @@ If your opener doesn't have Red/White terminals or wires, you can trace which te
 wall control is attached to, and piggyback off those. Consult your opener's manual
 to understand better which terminals are for commanding the door.
 
+Check the [compatibility page](/garaginator/compatibility) for more info.
+
 ## 🪄 Sensors {#sensors}
 
 GARAGINATOR considers a door "closed" if the attached sensor forms a closed circuit.
