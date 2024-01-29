@@ -4,6 +4,8 @@ showReadingTime: false
 title: "GARAGINATOR: User Guide"
 showSummary: true
 summary: Full documentation for everything GARAGINATOR
+aliases:
+   - /garaginator/help
 ---
 
 This page covers more in-depth details about GARAGINATOR and can be used as a
