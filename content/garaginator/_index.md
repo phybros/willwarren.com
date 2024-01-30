@@ -9,10 +9,18 @@ showTableOfContents: true
 
 Welcome to the GARAGINATOR website!
 
-💸 Just want to buy? [Click Here!](https://garaginator.square.site/product/garaginator-v1-2/1)
-
 Check out the links at the bottom to read more about
 [getting setup](/garaginator/start), [compatibility](/garaginator/compatibility), or [everything else](/garaginator/guide).
+
+## 💵 Order
+
+GARAGINATOR is now in limited stock!
+
+{{< button href="https://garaginator.square.site" target="_self" >}}
+Click here to order GARAGINATOR!
+{{< /button >}}
+
+Shipping to US and Canada
 
 ## 🤔 What is GARAGINATOR?
 
@@ -27,13 +35,5 @@ will work for you.
 
 If you're looking for the original announcement blog post,
 [click here](/2023/12/07/garaginator-smart-garage-door-opener/)!.
-
-## 💵 Buying
-
-GARAGINATOR is now in limited stock!
-
-{{< button href="https://garaginator.square.site" target="_self" >}}
-Click here to order GARAGINATOR!
-{{< /button >}}
 
 ## 🔗 Links
