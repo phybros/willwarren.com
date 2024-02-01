@@ -30,7 +30,7 @@ onto your GARAGINATOR device.
 
 ### Changelog
 
-- Fixed an issue where commanding the door to close via HomeKit would cause it to open instead
+- Fixed an issue where commanding the door to close via HomeKit could cause it to open instead
 - Firmware version number now shown in the captive portal
 
 ---
