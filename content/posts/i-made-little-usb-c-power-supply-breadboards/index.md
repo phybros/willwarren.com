@@ -3,6 +3,7 @@ title: I Made a Little USB-C Power Supply for Breadboards
 date: 2024-10-07
 tags:
 - electronics
+- kicad
 draft: false
 ---
 
