@@ -13,7 +13,7 @@ title = "Will Warren"
   subtitle = "The blog of an engineer from Canada"
   keywords = ["coding", "electronics", "3d printing", "sysadmin", "kubernetes"]
 
-[author]
+[params.author]
   name = "Will Warren"
   image = "me.png"
   headline = "Coding, 3D Printing, Electronics"
