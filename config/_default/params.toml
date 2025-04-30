@@ -52,7 +52,7 @@ fingerprintAlgorithm = "sha256"
   showTaxonomies = true
   showWordCount = false
   showComments = true
-  sharingLinks = ["facebook", "mastodon", "pinterest", "reddit", "linkedin"]
+  sharingLinks = ["facebook", "mastodon", "bluesky", "reddit", "linkedin"]
 
 [list]
   showBreadcrumbs = true
