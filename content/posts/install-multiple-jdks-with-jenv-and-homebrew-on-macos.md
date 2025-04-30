@@ -81,8 +81,8 @@ javahome() {
   java -version
 }
 
-alias j17='javahome 16'
-alias j18='javahome 17'
+alias j17='javahome 17'
+alias j18='javahome 18'
 alias j20='javahome 20'
 alias j21='javahome 21'
 ```

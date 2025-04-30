@@ -22,7 +22,7 @@ Support me by buying one from my [Tindie Store](https://www.tindie.com/products/
 The board is based around the
 [Richtek RT9080-33GJ5](https://octopart.com/rt9080-33gj5-richtek-75277504) which
 is a Low Dropout (LDO) DC-DC Voltage Regulator. It can provide up to 600mA of
-current at 3.3V. Perfect for powering microcontrollers and over 3.3V logic IC's.
+current at 3.3V. Perfect for powering microcontrollers and other 3.3V logic IC's.
 
 Additionally the board sports a tiny 0402 red LED indicator to show that the
 LDO is powered up and functioning.
