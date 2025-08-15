@@ -20,5 +20,5 @@ timeout = "120s"
 
 [permalinks]
   [permalinks.page]
-    posts = '/:year/:month/:day/:slugorfilename/'
-    pages = '/:slugorfilename/'
+    posts = '/:year/:month/:day/:slugorcontentbasename/'
+    pages = '/:slugorcontentbasename/'
