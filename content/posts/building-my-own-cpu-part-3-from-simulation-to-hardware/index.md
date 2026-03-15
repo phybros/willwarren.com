@@ -475,13 +475,13 @@ After that...WCPU-2 of course! I have a really long wishlist of things for WCPU-
 - More capable ALU: AND/OR/NAND/NOR/NOT/XOR/SHL/SHR etc
 - much much more......
 
-I'm want to graduate into "real computer" territory and that makes me insanely excited.
+I want to graduate into "real computer" territory and that makes me insanely excited.
 
 ### Open Sourcing
 
 I will be sharing everything on my [{{< icon "github" >}}Github](https://github.com/phybros), but not yet.
 
-The project is currently an incomprehensible mess of files in about 12 different folders across 2 different computers 😭
+The project is currently an incomprehensible mess of files in about 12 different folders strewn across 2 different computers 😭
 
 But yes I do plan to open source the entire thing, including the toolchain, full PCB design files, and BOM so you can get your own made and program it easily, should you want to.
 
@@ -498,7 +498,7 @@ For the next project, before buying a bunch of things or building another huge j
 ## Now Let's Talk About PCBWay!
 
 {{< alert "circle-info" >}}
-**Disclosure**: PCBWay reached out to sponsor this project. They provided the PCB fabrication and shipping for the boards described in this section for free. However they wanted me to be as honest as possible.
+**Disclosure**: [PCBWay](https://pcbway.com) reached out to sponsor this project. They provided the PCB fabrication and shipping for the boards described in this section for free. However they wanted me to be as honest as possible.
 
 All opinions, mistakes, and backwards LEDs are my own.
 {{< /alert >}}
@@ -511,15 +511,13 @@ The interactions with customer service were fast and clear, and they made things
 
 ### The Less Good
 
-They sent someone else's PCBs along with my order originally which was a bummer. The Register and EEPROM Programmer boards arrived in a box with someone else's PCBs instead of my Control Module boards which set me back about 4-5 days.
+The Register and EEPROM Programmer boards arrived in a box with someone else's PCBs instead of my Control Module boards which set me back a few days.
 
-PCBWay offered to remake and re-send the boards at no charge, which was awesome!
+[PCBWay](https://pcbway.com) offered to remake and re-send the boards at no charge, which was awesome! They were incredibly
+proactive about this as soon as I reported the issue, and began the manufacturing of a new batch immediately. The new boards
+were in my hands 3 days after emailing them about the problem.
 
-What was not awesome is that I had to pay import duties a second time. I let customer service know and they credited that amount back to my PCBWay account. That's awesome, but it was still very frustrating. I can imagine if I had a way larger order, that would not have been an insignificant amount of money. As it was, it was about $20 (CAD).
-
-~~Additionally, there is no way for me to pay on the PCBWay website. They no longer take Paypal for unclear reasons. The only way to pay with credit card involves signing up with a very strange processor which seems way more focused on setting up incoming payments rather than just paying for things online. I couldn't proceed without giving business info etc. A nonstarter. So even though I have a $20 credit to my account now, there's not really any way to use it. Guess I will wait and see if they bring back paypal, or implement stripe or something similar.~~
-
-**Update**: you can once again pay by credit card right on the PCBWay website.
+I had to pay import duties a second time, which was a bummer, but I let customer service know and they credited that amount back to my [PCBWay](https://pcbway.com) account immediately, which was amazing.
 
 ### Conclusion
 
