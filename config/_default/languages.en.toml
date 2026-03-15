@@ -8,17 +8,17 @@ title = "Will Warren"
 
 
 [params]
-  dateFormat = "2 January 2006"
-  description = "The blog of an engineer from Canada"
-  subtitle = "The blog of an engineer from Canada"
-  keywords = ["coding", "electronics", "3d printing", "sysadmin", "kubernetes"]
+dateFormat = "2 January 2006"
+description = "The blog of an engineer from Canada"
+subtitle = "The blog of an engineer from Canada"
+keywords = ["coding", "electronics", "3d printing", "sysadmin", "kubernetes"]
 
 [params.author]
-  name = "Will Warren"
-  image = "me.png"
-  headline = "Coding, 3D Printing, Electronics"
-  bio = "Coding, 3D Printing, Electronics"
-  links = [
+name = "Will Warren"
+image = "me.png"
+headline = "Coding, 3D Printing, Electronics"
+bio = "Coding, 3D Printing, Electronics"
+links = [
   #   { email = "mailto:hello@your_domain.com" },
   #   { link = "https://link-to-some-website.com/" },
   #   { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
@@ -61,4 +61,4 @@ title = "Will Warren"
   #   { whatsapp = "https://wa.me/phone-number" },
   #   { x-twitter = "https://twitter.com/username" },
   #   { youtube = "https://youtube.com/username" },
-  ]
+]
