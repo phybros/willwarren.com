@@ -5,7 +5,7 @@ tags:
 - electronics
 - project
 - WCPU-1
-draft: true
+draft: false
 ---
 
 Hello! This is the third part of the series about [WCPU-1](https://willwarren.com/tags/wcpu-1/), my homebrew 8-bit computer.
@@ -20,11 +20,11 @@ So in [Part 2](/2025/08/14/building-my-own-cpu-wcpu-part-2-simulation) I simulat
 
 This post covers what actually happened when I started building the physical thing. Spoiler: it was humbling. There are backwards LEDs, floating address lines, cursed EEPROMs, and at one point I just learned to read binary by staring at some blinking lights because I've been too lazy or distracted to build an output register yet.
 
+This build of WCPU-1 should be seen as a *prototype* to validate the design and wiring before moving to the "real" PCB design.
+
 I've written this in a sort of "don't make my mistakes, kid" war-story style, so it's a little crazed at times and probably a little embarrassing, but here we are.
 
 Also it's very, very long. Sorry.
-
-With the schematics roughed out in KiCAD (mostly traced from my Logisim design, which worked shockingly well as a reference), I started ordering parts from Digikey. If you plan ahead you can hit the free shipping threshold, which I'm going to pretend was strategic and not just the result of buying way too many LEDs.
 
 You probably already saw the "hero shot" of the build with all the red lights looking like something out of the Upside-Down, but here's another shot in the light of day:
 
@@ -32,9 +32,9 @@ You probably already saw the "hero shot" of the build with all the red lights lo
 
 ## So Much for "No Breadboards"
 
-This build of WCPU-1 should be seen as a *prototype* to validate the design and wiring before moving to the "real" PCB design.
-
 Of course, right out the gate I made some decisions which eventually felt like mistakes.
+
+With the schematics roughed out in KiCAD (mostly traced from my Logisim design, which worked shockingly well as a reference), I started ordering parts from Digikey. If you plan ahead you can hit the free shipping threshold, which I'm going to pretend was strategic and not just the result of buying way too many LEDs.
 
 In my mind I was thinking that I want everything on the **final** build to be Surface Mount Technology (SMT) and so that's pretty much what I ordered. I was going to make a few PCBs and connect them all together (how??) to experiment/validate ideas. But in the end there was so much rearranging that I decided to only create a couple of PCBs (more on that later) and do the rest breadboard style. Only you can't put SMT chips into breadboards...
 

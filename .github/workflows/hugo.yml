@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.148.2
+      HUGO_VERSION: 0.157.0
     steps:
       - name: Install Hugo CLI
         run: |
@@ -49,8 +49,8 @@ jobs:
           AWS_S3_BUCKET: ${{ secrets.AWS_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: 'us-east-1'
-          SOURCE_DIR: 'public'
+          AWS_REGION: "us-east-1"
+          SOURCE_DIR: "public"
       - name: Invalidate CloudFront
         uses: chetan/invalidate-cloudfront-action@v2
         env:
