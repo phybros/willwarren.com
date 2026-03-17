@@ -587,6 +587,10 @@ html.light .moon-icon {
   font-style: italic;
 }
 
+.prose figure a:hover {
+  text-decoration: none;
+}
+
 .prose figure.float-left {
   float: left;
   margin: 0.5em 1.75em 1em 0;
