@@ -25,7 +25,7 @@ onto your GARAGINATOR device.
 ## ✨ HomeKit Firmware v1.3 (Latest)
 
 <esp-web-install-button manifest="firmware/1.3/manifest.json">
-<button slot="activate" class="inline-block !rounded-md bg-primary-600 px-4 py-1 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700">INSTALL v1.3</button>
+<button slot="activate">INSTALL v1.3</button>
 </esp-web-install-button>
 
 ### Changelog
@@ -38,7 +38,7 @@ onto your GARAGINATOR device.
 ## HomeKit Firmware v1.2
 
 <esp-web-install-button manifest="firmware/1.2/manifest.json">
-<button slot="activate" class="inline-block !rounded-md bg-primary-600 px-4 py-1 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700">INSTALL v1.2</button>
+<button slot="activate">INSTALL v1.2</button>
 </esp-web-install-button>
 
 ### Changelog

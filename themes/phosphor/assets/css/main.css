@@ -1768,7 +1768,8 @@ html.light .chroma .gi {
 }
 
 /* ===== Button Shortcode ===== */
-.btn {
+.btn,
+esp-web-install-button button {
   display: inline-block;
   padding: 0.55rem 1.5rem;
   background: var(--accent);
@@ -1779,9 +1780,11 @@ html.light .chroma .gi {
   text-decoration: none;
   transition: all 0.2s ease;
   border: 1px solid var(--accent);
+  cursor: pointer;
 }
 
-.btn:hover {
+.btn:hover,
+esp-web-install-button button:hover {
   background: var(--accent-hover);
   border-color: var(--accent-hover);
   color: var(--bg);
