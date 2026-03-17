@@ -8,15 +8,21 @@ tags:
 draft: false
 ---
 
+{{< alert "info" >}}
 Hello! This is the third part of the series about [WCPU-1](https://willwarren.com/tags/wcpu-1/), my homebrew 8-bit computer.
 
 Check out [Part 1](/2025/04/29/building-my-own-cpu-wcpu-part-1) and [Part 2](/2025/08/14/building-my-own-cpu-wcpu-part-2-simulation)!
+{{< /alert >}}
 
 ## Recap/Intro
 
+Let's just get this over with:
+
+![A photo of the full build in a darkened room. A rat's nest of wires cover a malevolent red glow as the computer works](cover.jpeg "Don't look it directly in the eye!")
+
 So in [Part 2](/2025/08/14/building-my-own-cpu-wcpu-part-2-simulation) I simulated the whole design in Logisim-Evolution and tweaked it until I was happy. I was emboldened, and felt pretty confident that I wasn't going to make any **Big Mistakes** with the real hardware...
 
-[!["The 'is this a pigeon' meme but it says foreshadowing instead of pigeon"](is-this-a-foreshadowing.png)](is-this-a-foreshadowing.png "Maybe...")
+!["The 'is this a pigeon' meme but it says foreshadowing instead of pigeon"](is-this-a-foreshadowing.png "Maybe...")
 
 This post covers what actually happened when I started building the physical thing. Spoiler: it was humbling. There are backwards LEDs, floating address lines, cursed EEPROMs, and at one point I just learned to read binary by staring at some blinking lights because I've been too lazy or distracted to build an output register yet.
 
@@ -26,9 +32,9 @@ I've written this in a sort of "don't make my mistakes, kid" war-story style, so
 
 Also it's very, very long. Sorry.
 
-You probably already saw the "hero shot" of the build with all the red lights looking like something out of the Upside-Down, but here's another shot in the light of day:
+You already saw the "hero shot" of the build with all the red lights looking like something out of the Upside-Down, but here's another shot in the light of day:
 
-[![](full-build.jpeg)](full-build.jpeg)
+![](full-build.jpeg)
 
 ## So Much for "No Breadboards"
 
@@ -62,7 +68,7 @@ I had Claude Code help me design and implement a serial protocol for sending fil
 
 The Arduino Nano (clone) on the board is connected to all the address and data lines via 2 shift registers.
 
-[![](eeprom-programmer-schematic.png)](eeprom-programmer-schematic.png)
+![](eeprom-programmer-schematic.png)
 
 But it's also connected to the control pins (`OE`, `WE`, `CE`) via the shift registers!! That means the most significant three bits of the data being shifted out also control when and how the data is written.
 
@@ -141,7 +147,7 @@ So now the flow is from the clock module -> schmitt inverter (produces my ~CLK s
 
 The Instruction Register, the Flags Register and the T-State counter all feed directly into the EEPROMs, and thus cause the control lines to change. If we are latching all registers on the rising edge of the CLK signal, that causes a problem.
 
-[![Crudely hand drawn timing diagram showing a pulsing CLK signal, and T and F signals which do not rise at the same time.](quote-timing-diagram-unquote.png "\"Timing Diagram\"")](quote-timing-diagram-unquote.png)
+![Crudely hand drawn timing diagram showing a pulsing CLK signal, and T and F signals which do not rise at the same time.](quote-timing-diagram-unquote.png '"Timing Diagram"')
 
 In this amazing diagram `T` is the t-state counter and `F` is the flags register, for example.
 
@@ -215,7 +221,7 @@ The solution is to "gate" the RI signal with our clock signal. That is to say, t
 
 In my design's case, the time we choose is the rising edge of CLK. That is the time that we've chosen for all things to latch data, and RAM shouldn't be any different.
 
-[![Timing diagram for writing to the IS62C256AL. It is a screenshot from the datasheet.](ram-timing-diagram.png)](ram-timing-diagram.png)
+![Timing diagram for writing to the IS62C256AL. It is a screenshot from the datasheet.](ram-timing-diagram.png)
 
 The RAM commits data on the **rising edge of the active-low `~WE` signal**. That means we need to gate `RI` with `~CLK` so the write only completes at the correct time. That will produce a LOW signal (which starts the write process) only if RI AND ~CLK are both low. Then when ~CLK changes, WE will go high again, committing the write at the time we wanted.
 
@@ -247,7 +253,7 @@ There is no organization, and no structure really, except a couple of co-located
 
 Here is a map of the thing, but be warned: this image may disturb you 😂
 
-[![A photo of the full build with various areas crudely circled in mspaint](full-build-map.jpeg)](full-build-map.jpeg)
+![A photo of the full build with various areas crudely circled in mspaint](full-build-map.jpeg)
 
 In this image you can see:
 - **CLK** (the clock)
@@ -479,7 +485,7 @@ I want to graduate into "real computer" territory and that makes me insanely exc
 
 ### Open Sourcing
 
-I will be sharing everything on my [{{< icon "github" >}}Github](https://github.com/phybros), but not yet.
+I will be sharing everything on my [{{< icon "github" >}} Github](https://github.com/phybros), but not yet.
 
 The project is currently an incomprehensible mess of files in about 12 different folders strewn across 2 different computers 😭
 
@@ -497,7 +503,7 @@ For the next project, before buying a bunch of things or building another huge j
 
 ## Now Let's Talk About PCBWay!
 
-{{< alert "circle-info" >}}
+{{< alert "info" >}}
 **Disclosure**: [PCBWay](https://pcbway.com) reached out to sponsor this project. They provided the PCB fabrication and shipping for the boards described in this section for free. However they wanted me to be as honest as possible.
 
 All opinions, mistakes, and backwards LEDs are my own.

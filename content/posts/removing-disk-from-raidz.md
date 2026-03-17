@@ -22,13 +22,13 @@ In my case. I wanted to switch this particular zpool over to be a simple mergerf
 
 <!--more-->
 
->#### Caveats:
->
->You have to maintain enough redundancy in your zpool so that its data can still
-be read. In my case it is a 3-disk `raidz1`, so I can take 1 disk offline and
-the files can still be read/written at the mountpoint.
+{{< alert "danger" >}}
+**Remember:** You have to maintain enough redundancy in your zpool so that its
+data can still be read. In my case it is a 3-disk `raidz1`, so I can take 1 disk
+offline and the files can still be read/written at the mountpoint.
+{{< /alert >}}
 
-### Step 1
+## Step 1
 
 First take the drive offline and mark the it as faulted using the `-f` flag.
 
@@ -62,7 +62,7 @@ config:
 errors: No known data errors
 ```
 
-### Step 2
+## Step 2
 
 Next, use `gdisk` "expert functionality" to nuke that disk's whole identity
 using `x`, then `z` (to "zap") and say `Y` to wiping out the MBR.
@@ -102,7 +102,7 @@ other utilities.
 Blank out MBR? (Y/N): Y
 ```
 
-### Step 3
+## Step 3
 
 Then create a new partition table using`fdisk` and the `g` (make new gpt
 partition table), then `n` (create new partition) then say `Y` to remove the
@@ -134,7 +134,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-### Step 4
+## Step 4
 
 Now you can do whatever you want to the disk
 

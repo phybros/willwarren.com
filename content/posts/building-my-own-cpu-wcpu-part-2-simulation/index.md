@@ -21,7 +21,7 @@ I fired up good old [Logisim-Evolution](https://github.com/logisim-evolution/log
 
 There are some gotchas with simulating a CPU, mostly around how virtual circuits behave vs their real life counterparts. For example, on a rising clock edge you may be able to output from RAM and latch the value into a register at the same time. In real life the RAM will take more time to settle after the address lines are asserted (e.g. 100-200ns) than the register does to latch (e.g. 10-20ns).
 
-This basically means that pour clock will need to be “biphasic”. That is, slow stuff should happen on the rising edge, take its time to settle, then fast things should happen on the falling edge.
+This basically means that our clock will need to be “biphasic”. That is, slow stuff should happen on the rising edge, take its time to settle, then fast things should happen on the falling edge.
 
 This limits the “width” of our clock pulse to the slowest component in the circuit. If we go any faster we will see weirdness. If we said that 200ns is the slowest component then technically that means we can run our clock at maximum of 5MHz. However that doesn’t take into account additive propagation delays (e.g. 2 registers added together will have twice the overall propagation delay).
 
