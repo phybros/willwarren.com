@@ -19,7 +19,7 @@ I and II, Atari, BBC Micro, PET, VIC-20 etc etc etc. I hope to create one that
 is actually useful, and not just good for calculating fibonacci numbers or counting to
 255 (no shade!).
 
-{{< alert "circle-info" >}}
+{{< alert "info" >}}
 **Note**: This isn't a tutorial series - if you want to learn more about all this I suggest starting with [this playlist from Ben Eater](https://www.youtube.com/playlist?list=PLowKtXNTBypGqImE405J2565dvjafglHU) and then going from there!
 
 These posts are mostly just my thought processes and random notes.

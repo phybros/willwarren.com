@@ -8,7 +8,7 @@ summary: Follow this guide to get up and running quickly!
 
 This page has all the information needed to set up and use **GARAGINATOR v1.2**.
 
-{{< alert "circle-info" >}}
+{{< alert "info" >}}
 This page is for getting started, but for more detailed documentation, check out the full [GARAGINATOR User Guide](/garaginator/guide).
 {{< /alert >}}
 
@@ -36,7 +36,7 @@ If you want to speedrun the setup:
 1. Connect your door-closed [sensors](#sensors) to the SENSOR1/SENSOR2 terminals
 1. Enjoy!
 
-{{< alert "circle-info" >}}
+{{< alert "info" >}}
 Longer and more detailed instructions can be found below 👇
 {{< /alert >}}
 
@@ -46,7 +46,7 @@ Longer and more detailed instructions can be found below 👇
 
 Before mounting GARAGINATOR or wiring it to your garage door opener, it needs to be set up and configured.
 
-{{< alert "circle-info" >}}
+{{< alert "info" >}}
 **Note:** these steps are easier to accomplish _prior_ to mounting GARAGINATOR in a hard-to-reach place.
 {{< /alert >}}
 
