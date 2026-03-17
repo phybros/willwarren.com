@@ -1,0 +1,24 @@
+{{- $u := urls.Parse .Destination -}}
+{{- $src := $u.String -}}
+{{- $img := or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
+{{- if not $u.IsAbs -}}
+  {{- with $img -}}
+    {{- $src = .RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+{{- if .Title -}}
+<figure>
+  <img src="{{ $src }}"
+    {{- with .Text }} alt="{{ . }}"{{ end }}
+    {{- with $img }} width="{{ .Width }}" height="{{ .Height }}"{{ end }}
+    {{- if $.Page.Site.Params.enableImageLazyLoading | default true }} loading="lazy"{{ end }}
+  >
+  <figcaption>{{ .Title }}</figcaption>
+</figure>
+{{- else -}}
+<img src="{{ $src }}"
+  {{- with .Text }} alt="{{ . }}"{{ end }}
+  {{- with $img }} width="{{ .Width }}" height="{{ .Height }}"{{ end }}
+  {{- if $.Page.Site.Params.enableImageLazyLoading | default true }} loading="lazy"{{ end }}
+>
+{{- end -}}

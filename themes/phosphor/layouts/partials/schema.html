@@ -1,0 +1,27 @@
+{{- if .IsPage }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ .Title | jsonify }},
+  "url": {{ .Permalink | jsonify }},
+  {{- with .Date }}
+  "datePublished": {{ .Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  {{- end }}
+  {{- with .Lastmod }}
+  "dateModified": {{ .Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  {{- end }}
+  "author": {
+    "@type": "Person",
+    "name": {{ .Site.Language.Params.author.name | default .Site.Title | jsonify }}
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": {{ .Site.Language.Params.author.name | default .Site.Title | jsonify }}
+  }
+  {{- with .Description | default .Site.Params.description }},
+  "description": {{ . | jsonify }}
+  {{- end }}
+}
+</script>
+{{- end }}

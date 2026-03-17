@@ -1,0 +1,33 @@
+{{- $page := . -}}
+{{- $showSummary := false -}}
+{{- if reflect.IsMap . -}}
+  {{- $page = .Page -}}
+  {{- $showSummary = .ShowSummary | default false -}}
+{{- end -}}
+{{- $showDate := $page.Params.showDate | default ($page.Site.Params.article.showDate | default true) -}}
+{{- $thumb := $page.Resources.GetMatch "*thumb*" -}}
+<div class="article-link{{ if $thumb }} has-thumb{{ end }}">
+  {{- with $thumb }}
+    {{- $img1x := .Fill "160x120" -}}
+    {{- $img2x := .Fill "320x240" -}}
+    <a href="{{ $page.RelPermalink }}" class="article-thumb">
+      <img src="{{ $img1x.RelPermalink }}" srcset="{{ $img1x.RelPermalink }} 160w, {{ $img2x.RelPermalink }} 2x" alt="{{ $page.Title }}" loading="lazy" width="160" height="120">
+    </a>
+  {{- end }}
+  <div class="article-link-content">
+    <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+    <div class="article-list-meta">
+      {{- if $showDate }}
+        {{- with $page.Date }}
+          <time datetime="{{ .Format "2006-01-02" }}">{{ .Format (site.Params.dateFormat | default "2 January 2006") }}</time>
+        {{- end }}
+      {{- end }}
+      {{- if $page.Site.Params.article.showReadingTime | default true }}
+        <span>{{ $page.ReadingTime }} min</span>
+      {{- end }}
+    </div>
+    {{- if and $showSummary $page.Summary }}
+      <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.25rem;">{{ $page.Summary | truncate 150 }}</p>
+    {{- end }}
+  </div>
+</div>

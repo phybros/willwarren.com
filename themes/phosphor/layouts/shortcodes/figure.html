@@ -1,0 +1,47 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" -}}
+{{- $title := .Get "title" -}}
+{{- $caption := .Get "caption" -}}
+{{- $class := .Get "class" | default "" -}}
+{{- $link := .Get "link" -}}
+{{- $width := .Get "width" -}}
+{{- $height := .Get "height" -}}
+{{- $loading := .Get "loading" -}}
+{{- $attr := .Get "attr" -}}
+{{- $attrlink := .Get "attrlink" -}}
+
+{{/* Resolve page-relative images */}}
+{{- $u := urls.Parse $src -}}
+{{- $resolved := $u.String -}}
+{{- $img := or (.Page.Resources.Get $u.Path) (resources.Get $u.Path) -}}
+{{- if not $u.IsAbs -}}
+  {{- with $img -}}
+    {{- $resolved = .RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $width }}{{ with $img }}{{ $width = .Width }}{{ end }}{{ end -}}
+{{- if not $height }}{{ with $img }}{{ $height = .Height }}{{ end }}{{ end -}}
+
+<figure{{ with $class }} class="{{ . }}"{{ end }}>
+  {{- with $link }}<a href="{{ . }}">{{ end -}}
+  <img src="{{ $resolved }}"
+    {{- with $alt }} alt="{{ . }}"{{ end }}
+    {{- with $width }} width="{{ . }}"{{ end }}
+    {{- with $height }} height="{{ . }}"{{ end }}
+    {{- if or $loading ($.Page.Site.Params.enableImageLazyLoading | default true) }} loading="{{ $loading | default "lazy" }}"{{ end }}
+  >
+  {{- with $link }}</a>{{ end -}}
+  {{- if or $title $caption $attr }}
+    <figcaption>
+      {{- with $title }}<h4>{{ . }}</h4>{{ end -}}
+      {{- if or $caption $attr -}}
+        <p>
+          {{- with $caption }}{{ . | markdownify }}{{ end -}}
+          {{- with $attrlink }}<a href="{{ . }}">{{ end -}}
+          {{- with $attr }}{{ . | markdownify }}{{ end -}}
+          {{- with $attrlink }}</a>{{ end -}}
+        </p>
+      {{- end -}}
+    </figcaption>
+  {{- end }}
+</figure>

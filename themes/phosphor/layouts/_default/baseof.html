@@ -1,0 +1,42 @@
+<!doctype html>
+<html
+  lang="{{ site.Language.LanguageCode | default "en" }}"
+  dir="{{ site.Language.LanguageDirection | default "ltr" }}"
+  data-default-appearance="{{ .Site.Params.defaultAppearance | default "dark" }}"
+  data-auto-appearance="{{ .Site.Params.autoSwitchAppearance | default "true" }}"
+>
+  {{- partial "head.html" . -}}
+  <body>
+    {{- if .IsPage -}}
+      <div id="reading-progress"></div>
+    {{- end -}}
+    {{- partial "header.html" . -}}
+    <main class="page-wrapper">
+      {{- block "main" . }}{{ end -}}
+    </main>
+    {{- partial "footer.html" . -}}
+    {{- if .Site.Params.footer.showScrollToTop | default true }}
+      <button id="scroll-to-top" hidden aria-label="Scroll to top">{{ partial "icon.html" "chevron-up" }}</button>
+    {{- end }}
+    {{- if .Site.Params.enableSearch | default false }}
+      {{- partial "search.html" . -}}
+    {{- end }}
+    {{- $main := resources.Get "js/main.js" | minify | fingerprint }}
+    <script src="{{ $main.RelPermalink }}" integrity="{{ $main.Data.Integrity }}"></script>
+    {{- $lightbox := resources.Get "js/lightbox.js" | minify | fingerprint }}
+    <script src="{{ $lightbox.RelPermalink }}" integrity="{{ $lightbox.Data.Integrity }}"></script>
+    {{- if .Site.Params.enableCodeCopy | default false }}
+      {{- $code := resources.Get "js/code.js" | minify | fingerprint }}
+      <script src="{{ $code.RelPermalink }}" integrity="{{ $code.Data.Integrity }}"></script>
+    {{- end }}
+    {{- if .Site.Params.enableSearch | default false }}
+      {{- $fuse := resources.Get "lib/fuse/fuse.min.js" | fingerprint }}
+      <script src="{{ $fuse.RelPermalink }}" integrity="{{ $fuse.Data.Integrity }}"></script>
+      {{- $search := resources.Get "js/search.js" | minify | fingerprint }}
+      <script src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
+    {{- end }}
+    {{- if templates.Exists "partials/analytics.html" }}
+      {{- partial "analytics.html" . -}}
+    {{- end }}
+  </body>
+</html>

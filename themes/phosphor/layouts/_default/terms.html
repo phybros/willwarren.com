@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <div class="content-wrapper">
+    <h1 class="prose">{{ .Title }}</h1>
+    <ul class="taxonomy-list">
+      {{- range sort .Pages "Pages" "desc" }}
+        <li>
+          <a href="{{ .RelPermalink }}">
+            {{ .Name }}
+            {{- if $.Site.Params.taxonomy.showTermCount | default true }}
+              <span class="taxonomy-count">({{ len .Pages }})</span>
+            {{- end }}
+          </a>
+        </li>
+      {{- end }}
+    </ul>
+  </div>
+{{ end }}

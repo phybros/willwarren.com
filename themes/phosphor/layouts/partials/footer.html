@@ -1,0 +1,8 @@
+<footer class="site-footer">
+  <div class="page-wrapper">
+    {{- if .Site.Params.footer.showCopyright | default true }}
+      <span>&copy; {{ now.Year }} {{ .Site.Title }}</span>
+    {{- end }}
+    <span>Powered by <a href="https://gohugo.io">Hugo</a></span>
+  </div>
+</footer>

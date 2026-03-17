@@ -1,0 +1,24 @@
+{{- $author := .Site.Language.Params.author -}}
+{{- if eq (.Site.Params.homepage.layout | default "profile") "profile" }}
+<div class="profile">
+  {{- with $author.image }}
+    {{- with resources.Get . }}
+    <img src="{{ .RelPermalink }}" alt="{{ $author.name }}" class="profile-image"
+      {{- if $.Site.Params.enableImageLazyLoading }} loading="lazy"{{ end }}>
+    {{- end }}
+  {{- end }}
+  <h1>{{ $author.name | default $.Site.Title }}</h1>
+  {{- with .Site.Language.Params.subtitle }}
+    <p class="subtitle">{{ . }}</p>
+  {{- end }}
+  {{- with $author.links }}
+    <div class="profile-links">
+      {{- range . }}
+        {{- range $key, $val := . }}
+          <a href="{{ $val }}" target="_blank" rel="noopener noreferrer me" title="{{ $key }}">{{ $key }}</a>
+        {{- end }}
+      {{- end }}
+    </div>
+  {{- end }}
+</div>
+{{- end }}

@@ -1,0 +1,59 @@
+{{ define "main" }}
+<div class="content-wrapper">
+  <div class="article-header">
+    <h1>{{ .Title }}</h1>
+  </div>
+  {{- if .Content }}
+  <div class="prose" style="margin-bottom: 2rem;">
+    {{ .Content }}
+  </div>
+  {{- end }}
+  {{- $pages := .Pages }}
+  {{- if .IsHome }}
+  {{- $mainSections := .Site.Params.mainSections | default (slice "posts") }}
+  {{- $pages = where .Site.RegularPages "Section" "in" $mainSections }}
+  {{- end }}
+  {{- $paginator := .Paginate $pages }}
+  {{- $groupByYear := .Params.groupByYear | default (.Site.Params.list.groupByYear | default true) }}
+  {{- if $groupByYear }}
+  {{- range $paginator.Pages.GroupByDate "2006" }}
+  <div class="year-group">
+    <h2>{{ .Key }}</h2>
+    <ul class="article-list">
+      {{- range .Pages }}
+      <li class="article-list-item">
+        {{- partial "article-link.html" . -}}
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+  {{- end }}
+  {{- else }}
+  {{- $showSummary := .Params.showSummary | default (.Site.Params.list.showSummary | default false) }}
+  <ul class="article-list">
+    {{- range $paginator.Pages }}
+    <li class="article-list-item">
+      {{- partial "article-link.html" (dict "Page" . "ShowSummary" $showSummary) -}}
+    </li>
+    {{- end }}
+  </ul>
+  {{- end }}
+  {{- if gt $paginator.TotalPages 1 }}
+  <nav class="page-pagination">
+    {{- if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}">&laquo;</a>
+    {{- end }}
+    {{- range $paginator.Pagers }}
+    {{- if eq . $paginator }}
+    <span class="active">{{ .PageNumber }}</span>
+    {{- else }}
+    <a href="{{ .URL }}">{{ .PageNumber }}</a>
+    {{- end }}
+    {{- end }}
+    {{- if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}">&raquo;</a>
+    {{- end }}
+  </nav>
+  {{- end }}
+</div>
+{{ end }}

@@ -1,0 +1,45 @@
+<header class="site-header">
+  <div class="page-wrapper">
+    {{- if .Site.Params.header.showTitle | default true }}
+      <a href="{{ .Site.BaseURL }}" class="site-title">{{ .Site.Title }}</a>
+    {{- end }}
+    <div class="site-nav">
+      <div class="nav-links">
+        {{- range .Site.Menus.main }}
+          {{- if .Params.action }}
+            {{- if eq .Params.action "search" }}
+              {{- if $.Site.Params.enableSearch }}
+                <button class="nav-btn" onclick="openSearch()" aria-label="Search" title="Search (/)">
+                  <span class="icon">{{ partial "icon.html" "search" }}</span>
+                </button>
+              {{- end }}
+            {{- end }}
+          {{- else }}
+            <a href="{{ .URL }}">{{ .Name }}</a>
+          {{- end }}
+        {{- end }}
+      </div>
+      <div class="nav-buttons">
+        {{- if .Site.Params.footer.showAppearanceSwitcher | default false }}
+          <button id="appearance-switcher" class="nav-btn" aria-label="Toggle dark/light mode" title="Toggle theme">
+            <span class="icon sun-icon">{{ partial "icon.html" "sun" }}</span>
+            <span class="icon moon-icon">{{ partial "icon.html" "moon" }}</span>
+          </button>
+        {{- end }}
+      </div>
+      <button id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <span class="icon">{{ partial "icon.html" "menu" }}</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="page-wrapper">
+    {{- range .Site.Menus.main }}
+      {{- if not .Params.action }}
+        <a href="{{ .URL }}">{{ .Name }}</a>
+      {{- end }}
+    {{- end }}
+    {{- if $.Site.Params.enableSearch }}
+      <a href="#" onclick="openSearch(); return false;">Search</a>
+    {{- end }}
+  </div>
+</header>

@@ -1,0 +1,17 @@
+{{- $limit := .Site.Params.homepage.recentLimit | default 5 -}}
+{{- $mainSections := .Site.Params.mainSections | default (slice "posts") -}}
+{{- $pages := where .Site.RegularPages "Section" "in" $mainSections -}}
+{{- if $pages }}
+<div style="margin-top: 1rem;">
+  <h2 class="prose" style="font-size: 1.25rem; margin-bottom: 1rem;">Recent Posts</h2>
+  <ul class="article-list">
+    {{- range first $limit $pages }}
+      <li class="article-list-item">
+        {{- partial "article-link.html" . -}}
+      </li>
+    {{- end }}
+  </ul>
+  {{- $mainSection := index $mainSections 0 }}
+  <p style="margin-top: 1rem;"><a href="{{ $mainSection | relURL }}/">View all &rarr;</a></p>
+</div>
+{{- end }}

@@ -1,0 +1,21 @@
+{{- $showPagination := .Site.Params.article.showPagination | default true -}}
+{{- if $showPagination }}
+<nav class="pagination content-wrapper">
+  {{- with .PrevInSection }}
+    <a href="{{ .RelPermalink }}" style="text-align: left;">
+      <span class="pagination-label">&larr; Previous</span>
+      <span class="pagination-title">{{ .Title }}</span>
+    </a>
+  {{- else }}
+    <span></span>
+  {{- end }}
+  {{- with .NextInSection }}
+    <a href="{{ .RelPermalink }}" style="text-align: right; margin-left: auto;">
+      <span class="pagination-label">Next &rarr;</span>
+      <span class="pagination-title">{{ .Title }}</span>
+    </a>
+  {{- else }}
+    <span></span>
+  {{- end }}
+</nav>
+{{- end }}

@@ -1,0 +1,32 @@
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{- with .Description | default .Site.Params.description }}
+  <meta property="og:description" content="{{ . }}">
+{{- end }}
+{{- if .IsPage }}
+  <meta property="og:type" content="article">
+  {{- with .Date }}<meta property="article:published_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+  {{- with .Lastmod }}<meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+{{- else }}
+  <meta property="og:type" content="website">
+{{- end }}
+{{- /* Image cascade: page resource cover.* → .Params.image → site fallback */ -}}
+{{- $img := false -}}
+{{- with .Resources.GetMatch "cover.*" -}}
+  {{- $img = . -}}
+{{- else -}}
+  {{- with $.Params.image -}}
+    {{- with resources.Get . -}}
+      {{- $img = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- with $img }}
+  <meta property="og:image" content="{{ .Permalink }}">
+  <meta property="og:image:width" content="{{ .Width }}">
+  <meta property="og:image:height" content="{{ .Height }}">
+  {{- with .MediaType.Type }}
+  <meta property="og:image:type" content="{{ . }}">
+  {{- end }}
+{{- end }}

@@ -1,0 +1,19 @@
+{{- /* Image cascade: page resource cover.* → .Params.image → site fallback */ -}}
+{{- $img := false -}}
+{{- with .Resources.GetMatch "cover.*" -}}
+  {{- $img = . -}}
+{{- else -}}
+  {{- with $.Params.image -}}
+    {{- with resources.Get . -}}
+      {{- $img = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<meta name="twitter:card" content="{{ if $img }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:title" content="{{ .Title }}">
+{{- with .Description | default .Site.Params.description }}
+  <meta name="twitter:description" content="{{ . }}">
+{{- end }}
+{{- with $img }}
+  <meta name="twitter:image" content="{{ .Permalink }}">
+{{- end }}

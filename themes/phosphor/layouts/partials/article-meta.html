@@ -1,0 +1,29 @@
+{{- $showDate := .Site.Params.article.showDate | default true -}}
+{{- if isset .Params "showdate" -}}
+  {{- $showDate = .Params.showDate -}}
+{{- end -}}
+{{- $showReadingTime := .Site.Params.article.showReadingTime | default true -}}
+{{- if isset .Params "showreadingtime" -}}
+  {{- $showReadingTime = .Params.showReadingTime -}}
+{{- end -}}
+{{- $showTaxonomies := .Site.Params.article.showTaxonomies | default true -}}
+{{- $hasContent := or (and $showDate .Date) $showReadingTime (and $showTaxonomies .Params.tags) -}}
+{{- if $hasContent }}
+<div class="article-meta">
+  {{- if $showDate }}
+    {{- with .Date }}
+      <time datetime="{{ .Format "2006-01-02" }}">{{ .Format ($.Site.Language.Params.dateFormat | default "2 January 2006") }}</time>
+    {{- end }}
+  {{- end }}
+  {{- if $showReadingTime }}
+    <span>{{ .ReadingTime }} min read</span>
+  {{- end }}
+  {{- if and $showTaxonomies .Params.tags }}
+    <div class="article-tags">
+      {{- range .Params.tags }}
+        <a href="{{ "tags/" | absURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>
+      {{- end }}
+    </div>
+  {{- end }}
+</div>
+{{- end }}

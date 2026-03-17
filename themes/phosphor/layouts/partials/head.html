@@ -1,0 +1,51 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Hugo {{ hugo.Version }}">
+  {{- with .Site.Params.robots }}
+    <meta name="robots" content="{{ . }}">
+  {{- end }}
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  {{- with .Description | default .Site.Params.description }}
+    <meta name="description" content="{{ . }}">
+  {{- end }}
+  {{- with .Site.Params.keywords }}
+    <meta name="keywords" content="{{ delimit . ", " }}">
+  {{- end }}
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  {{/* Appearance script — blocking to prevent flash */}}
+  {{- $appearance := resources.Get "js/appearance.js" | minify | fingerprint }}
+  <script src="{{ $appearance.RelPermalink }}" integrity="{{ $appearance.Data.Integrity }}"></script>
+
+  {{/* Google Fonts */}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  {{/* Main CSS */}}
+  {{- $css := resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+
+  {{/* Custom CSS override */}}
+  {{- $customCSS := resources.Get "css/custom.css" }}
+  {{- with $customCSS }}
+    {{- $custom := . | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $custom.RelPermalink }}" integrity="{{ $custom.Data.Integrity }}">
+  {{- end }}
+
+  {{/* RSS */}}
+  {{- with .OutputFormats.Get "RSS" }}
+    <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .RelPermalink }}">
+  {{- end }}
+
+  {{/* Favicon */}}
+  <link rel="icon" href="{{ "favicon.ico" | relURL }}">
+
+  {{/* Open Graph & Twitter Cards */}}
+  {{- partial "opengraph.html" . -}}
+  {{- partial "twitter-cards.html" . -}}
+
+  {{/* Structured Data */}}
+  {{- partial "schema.html" . -}}
+</head>

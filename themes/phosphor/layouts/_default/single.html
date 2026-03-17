@@ -1,0 +1,44 @@
+{{ define "main" }}
+  <article>
+    {{- $showToc := and (.Site.Params.article.showTableOfContents | default false) .Fragments.Headings }}
+    <div class="article-header content-wrapper{{ if $showToc }} has-toc{{ end }}">
+      <h1>{{ .Title }}</h1>
+      {{- partial "article-meta.html" . -}}
+    </div>
+    {{- if $showToc }}
+      <div class="toc-mobile content-wrapper">
+        {{- partial "toc.html" . -}}
+      </div>
+    {{- end }}
+    <div class="article-layout{{ if $showToc }} content-wrapper{{ end }}">
+      {{- if not $showToc }}
+        <div class="article-content content-wrapper prose">
+      {{- else }}
+        <div class="article-content prose">
+      {{- end }}
+        {{ .Content }}
+        {{- if and .Site.Params.article.sharingLinks (eq .Section "posts") }}
+          {{- partial "sharing-links.html" . -}}
+        {{- end }}
+        {{- if and (.Site.Params.article.showComments | default false) (eq .Section "posts") }}
+          {{- if templates.Exists "partials/comments.html" }}
+            <div class="comments">
+              {{- partial "comments.html" . -}}
+            </div>
+          {{- end }}
+        {{- end }}
+      </div>
+      {{- if $showToc }}
+        <aside class="toc-sidebar">
+          <nav>
+            <div class="toc-title">On this page</div>
+            {{ .TableOfContents }}
+          </nav>
+        </aside>
+      {{- end }}
+    </div>
+    {{- if .Site.Params.article.showPagination | default true }}
+      {{- partial "pagination.html" . -}}
+    {{- end }}
+  </article>
+{{ end }}
