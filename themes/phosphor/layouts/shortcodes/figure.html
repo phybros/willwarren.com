@@ -10,6 +10,8 @@
 {{- $attr := .Get "attr" -}}
 {{- $attrlink := .Get "attrlink" -}}
 
+{{- if not $src }}{{ errorf "figure shortcode requires a `src` parameter: %s" .Position }}{{ end -}}
+
 {{/* Resolve page-relative images */}}
 {{- $u := urls.Parse $src -}}
 {{- $resolved := $u.String -}}
@@ -19,8 +21,8 @@
     {{- $resolved = .RelPermalink -}}
   {{- end -}}
 {{- end -}}
-{{- if not $width }}{{ with $img }}{{ $width = .Width }}{{ end }}{{ end -}}
-{{- if not $height }}{{ with $img }}{{ $height = .Height }}{{ end }}{{ end -}}
+{{- if not $width -}}{{ with $img }}{{ $width = .Width }}{{ end }}{{ end -}}
+{{- if not $height -}}{{ with $img }}{{ $height = .Height }}{{ end }}{{ end -}}
 
 <figure{{ with $class }} class="{{ . }}"{{ end }}>
   {{- with $link }}<a href="{{ . }}">{{ end -}}

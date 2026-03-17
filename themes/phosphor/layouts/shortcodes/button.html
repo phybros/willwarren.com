@@ -5,5 +5,5 @@
   {{ with .Get "download" }}download="{{ . }}"{{ end }}
   role="button"
 >
-  {{ .Inner }}
+  {{ .Inner | markdownify }}
 </a>
