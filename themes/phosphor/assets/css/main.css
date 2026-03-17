@@ -526,6 +526,14 @@ html.light .moon-icon {
   border-radius: 0;
 }
 
+.prose pre {
+  scrollbar-width: none;           /* Firefox */
+}
+
+.prose pre::-webkit-scrollbar {
+  display: none;                   /* Chrome, Safari, Edge */
+}
+
 .prose pre code {
   background: none;
   padding: 0;
@@ -635,6 +643,11 @@ html.light .moon-icon {
   padding: 1.25em 1.5em;
   overflow-x: auto;
   background: transparent;
+  scrollbar-width: none;
+}
+
+.highlight pre::-webkit-scrollbar {
+  display: none;
 }
 
 .copy-btn {

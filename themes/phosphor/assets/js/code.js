@@ -22,8 +22,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (highlight) {
       highlight.appendChild(btn);
     } else {
-      pre.style.position = "relative";
-      pre.appendChild(btn);
+      // Wrap bare pre in a container so the copy button stays fixed on scroll
+      var wrapper = document.createElement("div");
+      wrapper.className = "highlight";
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+      wrapper.appendChild(btn);
     }
   });
 });
