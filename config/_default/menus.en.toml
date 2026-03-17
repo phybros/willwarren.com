@@ -31,6 +31,11 @@
   weight = 40
 
 [[main]]
+  name = "RSS"
+  url = "/index.xml"
+  weight = 50
+
+[[main]]
   identifier = "search"
   weight = 99
   [main.params]
