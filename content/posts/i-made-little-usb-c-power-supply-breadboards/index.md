@@ -13,7 +13,7 @@ This handy little device not only powers your breadboard projects but also
 breaks out the data lines (D+/D-), so you can easily connect and communicate
 with microcontrollers or similar gadgets straight from your computer.
 
-{{< alert "lightbulb" >}}
+{{< alert "tip" >}}
 Support me by buying one from my [Tindie Store](https://www.tindie.com/products/phybros/usb-c-breadboard-power-supply/)! 🙃
 {{< /alert >}}
 
@@ -57,6 +57,6 @@ paste and a lot of patience with these teeeeeny tiny 0402 components.
 That's it! I've used these boards many times now during the prototyping phase
 for my various projects involving low power sensors, IoT and home automation.
 
-{{< alert "lightbulb" >}}
+{{< alert "tip" >}}
 Grab one for yourself from my [Tindie Store](https://www.tindie.com/products/phybros/usb-c-breadboard-power-supply/)! 🙃
 {{< /alert >}}
