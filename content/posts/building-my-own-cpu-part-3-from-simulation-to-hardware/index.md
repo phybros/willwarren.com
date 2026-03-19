@@ -80,25 +80,25 @@ That said, in "slow mode" it did work on the first try, which is a win in my boo
 
 This was probably my greatest success in this project so far.
 
-I designed a generic register PCB which contained a 74HC377 octal D type flip flop (to hold the actual data) and a 74HC245 for its tristate bus connection.
+I designed a generic register PCB which contained a `74HC377` octal D type flip flop (to hold the actual data) and a `74HC245` for its tristate bus connection.
 
 This way I could just connect all the registers to the same bus, and differentiate them by which IN and OUT control lines they were connected to. Very tidy.
 
 ![Photo of the generic Register PCB. It has 2 big-ish IC's on it (the 74HC377 and the 74HC245) and 8 red LEDs](register-pcb.jpeg "You can tell this is the instruction register because of the professional white marker usage")
 
-Other than IN, OUT and power pins, the left set of 8 pins is the I/O connection to the 74HC245. The right-hand set of pins is the output pins from the 74HC377. Of course there are also many blinkenlights showing the internal state of the register. Super handy for debugging!
+Other than IN, OUT and power pins, the left set of 8 pins is the I/O connection to the `74HC245`. The right-hand set of pins is the output pins from the `74HC377`. Of course there are also many blinkenlights showing the internal state of the register. Super handy for debugging!
 
 #### A Note on the `74HC377`
 
-In future builds I would probably choose to work with the 74HC574 instead. The reason being that the '377 doesn't have tristate outputs - so you require something like the '245 to connect to a shared data bus, adding 1 extra chip to your count.
+In future builds I would probably choose to work with the `74HC574` instead. The reason being that the '377 doesn't have tristate outputs - so you require something like the '245 to connect to a shared data bus, adding 1 extra chip to your count.
 
-The drawback of something like the '574 is that there's no way to see the internal state without outputting it somewhere (like the bus). So for debugging and demonstrator type projects, the 377 is fine because you can connect it to some LEDs as I have done, and then into a bus transceiver, but if you just use the 574 in the exact same way, you ALSO have the option to reduce your chip count since you don't need the 74HC245. Drawback obviously being fewer blinkenlights. 
+The drawback of something like the '574 is that there's no way to see the internal state without outputting it somewhere (like the bus). So for debugging and demonstrator type projects, the 377 is fine because you can connect it to some LEDs as I have done, and then into a bus transceiver, but if you just use the 574 in the exact same way, you ALSO have the option to reduce your chip count since you don't need the `74HC245`. Drawback obviously being fewer blinkenlights. 
 
 This board worked perfectly first try and has been rock solid, btw. No big deal 💅.
 
 ### The Control Module Board 😩
 
-This board is extremely simple. It just holds the 3x AT28C64B EEPROMs that generate the 24-bit control word.
+This board is extremely simple. It just holds the 3x `AT28C64B` EEPROMs that generate the 24-bit control word.
 
 It takes addresses in, and poops out the microcode steps, asserting/deasserting control lines and driving the whole computer. Simple right?
 
@@ -108,7 +108,7 @@ Then a bunch of bad things happened:
 - The boards were mis-shipped on the first attempt by PCBWay. I received some other random person's PCBs. Got it re-made and re-shipped, not a huge deal (more on this below)
 - I inverted `CE` in the schematic which is actually active-HIGH. So in the microcode ROM I have to invert it, again
 - Oh, and whoops, no decoupling capacitors anywhere. I bodged some in afterwards.
-- There was another massive design flaw: the Output Enable and Write Enable pins weren't connected to anything at all! They were just floating and doing whatever they wanted, meaning that they were corrupting themselves continuously. I performed the worlds smallest bodge 6 times, and that issue was resolved
+- There was another massive design flaw: the Output Enable and Write Enable pins weren't connected to anything at all! They were just floating and doing whatever they wanted, meaning that they were corrupting themselves continuously. I performed the world's smallest bodge 6 times, and that issue was resolved
 - I INSTALLED ALL 36 LEDs BACKWARDS. Every single one. I had to rotate them individually with my hot air station and tweezers. Very zen, but very, VERY tedious
 
 ![Photo of the completed control module PCB. Three EEPROMs in their sockets are visible, along with the 3 shift registers with their bodged decoupling capacitors. Some of the LEDs are glowing.](control-logic-pcb.jpeg "This PCB has been through it")
@@ -141,11 +141,11 @@ The clock module does not produce very nice edges. I eventually fixed this by ro
 
 The yellow line here is the drooopy clock signal. This is a combination of poor power distribution and bad wiring. The blue line is an example of a downstream device spuriously going low at the wrong time because of the "falling edge" in the middle of the clock pulse.
 
-So now the flow is from the clock module -> schmitt inverter (produces my ~CLK signal) -> into another Schmitt inverter (produces my CLK signal). In later/better versions I will probably still use the Schmitt inverters because they sort of guarantee a level of edge quality that we want.
+So now the flow is from the clock module -> schmitt inverter (produces my `~CLK` signal) -> into another Schmitt inverter (produces my `CLK` signal). In later/better versions I will probably still use the Schmitt inverters because they sort of guarantee a level of edge quality that we want.
 
 ### 2. Instruction Register, Flags and T-State Timing
 
-The Instruction Register, the Flags Register and the T-State counter all feed directly into the EEPROMs, and thus cause the control lines to change. If we are latching all registers on the rising edge of the CLK signal, that causes a problem.
+The Instruction Register, the Flags Register and the T-State counter all feed directly into the EEPROMs, and thus cause the control lines to change. If we are latching all registers on the rising edge of the `CLK` signal, that causes a problem.
 
 ![Crudely hand drawn timing diagram showing a pulsing CLK signal, and T and F signals which do not rise at the same time.](quote-timing-diagram-unquote.png '"Timing Diagram"')
 
@@ -159,13 +159,13 @@ It should also be noted that the Instruction Register has the same issue! And we
 
 #### The Solution
 
-To solve this, I tied the outputs of the Flags Register and Instruction Register into another 74HC377, which was clocked with the rising edge of the ~CLK signal (which is also the falling edge of the CLK signal). With the Output Enable pin tied low, the clock pin has all the control over when that value will emerge, and start controlling the EEPROMs.
+To solve this, I tied the outputs of the Flags Register and Instruction Register into another `74HC377`, which was clocked with the rising edge of the `~CLK` signal (which is also the falling edge of the `CLK` signal). With the Output Enable pin tied low, the clock pin has all the control over when that value will emerge, and start controlling the EEPROMs.
 
 Now, all the craziness of the setup time happens at once, and we don't need to worry about control lines going nuts in the middle of an instruction.
 
 ### 3. EEPROM Glitches
 
-The EEPROMs I'm using for the control module glitch at lot when the input address changes. Here's a nice example - yellow line is an address pin changing, and the blue line is the EEPROM glitching temporarily low for about 25ns.
+The EEPROMs I'm using for the control module glitch a lot when the input address changes. Here's a nice example - the yellow line is an address pin changing, and the blue line is the EEPROM glitching temporarily low for about 25ns.
 
 ![](eeprom-glitch.jpeg)
 
@@ -179,13 +179,13 @@ Now, given that I just said that glitches at address changes are a known and nor
 
 The blue line is one of the control lines coming out of the EEPROM. The yellow line is CLK.
 
-![Oscilloscope screenshot. It shoes a square wave (the CLK signal) and another line that is erratically oscillating, rather than holding a specific level.](eeprom-glitch-worse.png)
+![Oscilloscope screenshot. It shows a square wave (the CLK signal) and another line that is erratically oscillating, rather than holding a specific level.](eeprom-glitch-worse.png)
 
-And here again, you can see the CLK goes low, and the EEPROM just goes crazy, and not just for 150ns! It just keeps glitching for the whole low cycle, and then also at some random times.
+And here again, you can see the `CLK` goes low, and the EEPROM just goes crazy, and not just for 150ns! It just keeps glitching for the whole low cycle, and then also at some random times.
 
 ![Oscilloscope screenshot. The glitches are worse now, and seemingly random](eeprom-glitch-worser.png)
 
-Here's the weirdest example I was able to capture where one of the control lines was just oscillating forever. This was true even with the CLK halted etc. crazy stuff.
+Here's the weirdest example I was able to capture where one of the control lines was just oscillating forever. This was true even with the `CLK` halted etc. crazy stuff.
 
 ![Oscilloscope screenshot. Now the glitches are just perpetual, and not affected by the clock at all. Something is wrong.](eeprom-glitch-even-woorrserr.png)
 
@@ -211,19 +211,19 @@ What I realized is now insanely obvious in hindsight, and I feel dumb for not re
 
 The RAM chip I'm using (`IS62C256AL`) is asynchronous, meaning it has no clock signal to tell it when to do things. If you want to get it to write whatever is on the bus to itself, you bring the `~WE` (write enable) pin low, then when you take it high again, the data is written. Nice.
 
-In my design, the control signal RI (RAM IN) is wired directly to the `~WE` pin on the `IS62C256AL`.
+In my design, the control signal `RI` (RAM IN) is wired directly to the `~WE` pin on the `IS62C256AL`.
 
-Maybe you can see where this is going. The RI control signal is driven by our glitchy friends the EEPROMs. So naturally if RI glitches high-low-high or low-high-low or any other pattern, the RAM chip will store whatever is on its I/O pins at that instant. What is on it's I/O pins at that instant is highly (astronomically) unlikely to be what you actually want at that instant.
+Maybe you can see where this is going. The `RI` control signal is driven by our glitchy friends the EEPROMs. So naturally if `RI` glitches high-low-high or low-high-low or any other pattern, the RAM chip will store whatever is on it's I/O pins at that instant. What is on it's I/O pins at that instant is highly (astronomically) unlikely to be what you actually want at that instant.
 
 #### Solution
 
-The solution is to "gate" the RI signal with our clock signal. That is to say, that the RAM should completely ignore RI until a time of our choosing.
+The solution is to "gate" the `RI` signal with our clock signal. That is to say, that the RAM should completely ignore `RI` until a time of our choosing.
 
-In my design's case, the time we choose is the rising edge of CLK. That is the time that we've chosen for all things to latch data, and RAM shouldn't be any different.
+In my design's case, the time we choose is the rising edge of `CLK`. That is the time that we've chosen for all things to latch data, and RAM shouldn't be any different.
 
 ![Timing diagram for writing to the IS62C256AL. It is a screenshot from the datasheet.](ram-timing-diagram.png)
 
-The RAM commits data on the **rising edge of the active-low `~WE` signal**. That means we need to gate `RI` with `~CLK` so the write only completes at the correct time. That will produce a LOW signal (which starts the write process) only if RI AND ~CLK are both low. Then when ~CLK changes, WE will go high again, committing the write at the time we wanted.
+The RAM commits data on the **rising edge of the active-low `~WE` signal**. That means we need to gate `RI` with `~CLK` so the write only completes at the correct time. That will produce a LOW signal (which starts the write process) only if `RI` AND `~CLK` are both low. Then when `~CLK` changes, `WE` will go high again, committing the write at the time we wanted.
 
 **This fix solved the last problem that was plaguing the build.**
 
@@ -262,11 +262,11 @@ In this image you can see:
 - **PC** (Program counter)
 - **T** (T-step counter)
 - **BUS** (the bus)
-- **RAM+MAR**
+- **RAM+MAR** (RAM and Memory Address Regsister)
 - **1** (the ALU, not sure why I put 1. There is also the zero detect logic and its bus transceiver)
 - **FLAGS** (The flags register)
 - **IR**  (Instruction Register)
-- **IF** (the 74HC377 that gates IR and FLAGS to the correct ~CLK phase)
+- **IF** (the 74HC377 that gates IR and FLAGS to the correct `~CLK` phase)
 - **X**,**A** (registers)
 - **B** (the B register plus all the XOR gates used for the SUB instruction)
 
@@ -278,35 +278,35 @@ Each wire is also basically a capacitor, so if there is contact resistance from 
 
 ## The Arduino Mega: World's Most Overqualified ROM Loader
 
-Using DIP switches to load a program into RAM got very old very quickly. Since this machine has 256 useable bytes of RAM, the programs can get kind of long.
+Using DIP switches to load a program into RAM got very old very quickly. Since this machine has 256 usable bytes of RAM, the programs can get kind of long.
 
 Instead I sort of hacked an Arduino Mega into the middle of it.
 
-It's directly connected to the bus and some of the control lines (RESET, II, RI, MI, CLK).
+It's directly connected to the bus and some of the control lines (`RESET`, `II`, `RI`, `MI`, `CLK`).
 
-I also route the CLK line via a little SPDT switch which controls whether CLK comes from the actual clock, or from the Arduino.
+I also route the `CLK` line via a little SPDT switch which controls whether `CLK` comes from the actual clock, or from the Arduino.
 
 ![](arduino-mega.jpeg)
 
-On boot, the Arduino pulls reset low, then shoves bytes into RAM one by one, pulsing CLK as it goes, and then releases the reset line and sets all the control line connections to "INPUT" (which makes them High-Z, effectively unplugging them from the circuit).
+On boot, the Arduino pulls reset low, then shoves bytes into RAM one by one, pulsing `CLK` as it goes, and then releases the reset line and sets all the control line connections to "INPUT" (which makes them High-Z, effectively unplugging them from the circuit).
 
 So the process to load the program is:
 
-- Switch the CLK line to the Arduino
+- Switch the `CLK` line to the Arduino
 - Power up the WCPU-1 if it isn't yet
 - Press the reset button on the Arduino
 - The Arduino stuffs the program into RAM in about 10ms
 - Hold down the WCPU-1 reset button
-- Switch the CLK back to the real clock
+- Switch the `CLK` back to the real clock
 - Let go of the reset button
 
 This didn't always work very well, and honestly it is a **huge hack**. The logic levels on the control lines are all over the place because the EEPROMs are also trying to drive the lines.
 
-In practice, this bus fighting originally prevented the Arduino from writing to RAM at all. So in the image above you might see a thing marked LOAD that is just a 74HC245 on its own whose Output Enable pin is controlled by the Arduino.
+In practice, this bus fighting originally prevented the Arduino from writing to RAM at all. So in the image above you might see a thing marked LOAD that is just a `74HC245` on its own whose Output Enable pin is controlled by the Arduino.
 
-In this way, the Arduino can cut the EEPROM off from the RI line temporarily while it's working, and then it relinquishes it back again afterwards. None of the other control signals seemed to care about the Arduino, but RI is incredibly sensitive.
+In this way, the Arduino can cut the EEPROM off from the `RI` line temporarily while it's working, and then it relinquishes it back again afterwards. None of the other control signals seemed to care about the Arduino, but `RI` is incredibly sensitive.
 
-The proper way to do this would probably be to wire the OE pin of all the control logic EEPROMs up to the Arduino, then you could effectively "unplug" the whole module from the computer while the Arduino loader did it's thing. Unfortunately for me, I didn't break out the OE pin on my Control Module PCB!
+The proper way to do this would probably be to wire the `OE` pin of all the control logic EEPROMs up to the Arduino, then you could effectively "unplug" the whole module from the computer while the Arduino loader did its thing. Unfortunately for me, I didn't break out the `OE` pin on my Control Module PCB!
 
 #### The "real" solution
 
@@ -342,7 +342,7 @@ SZC IIIIII TTTT
 
 ### The Instruction Set
 
-I decided to keep it simple, since I'm not planning on adding a crazy amount of capabilities and i expect the programs in WCPU to be relatively simple. I have space for 64 different opcodes and at the moment I have 23.
+I decided to keep it simple, since I'm not planning on adding a crazy amount of capabilities and I expect the programs in WCPU to be relatively simple. I have space for 64 different opcodes and at the moment I have 23.
 
 Despite the simplicity you can find some pretty creative ways to use these instructions to make cool programs. There is also immediate and absolute addressing modes for many instructions. Meaning they can operate on either a provided literal value like `5` or a value fetched from elsewhere in memory like `$AA`.
 
@@ -418,9 +418,9 @@ Worth spelling out end to end because although it is janky, it is still very sat
 1. Write assembly in a `.w` file
 2. `wcasm.py` assembles it into a raw `.bin`
 3. The machine code gets embedded in the Arduino sketch
-4. Upload the sketch to the Arduino with the CLK in "Arduino mode"
+4. Upload the sketch to the Arduino with the `CLK` in "Arduino mode"
 5. Arduino loads the program into RAM, releases reset
-6. Switch the CLK back to Clock, and the CPU runs the program!
+6. Switch the `CLK` back to Clock, and the CPU runs the program!
 
 It's a lot of steps, but each one is dead simple and individually testable. In future of course, the Arduino will be gone, and wcasm will be enhanced to send the binary straight to the EEPROM via serial.
 
@@ -450,15 +450,15 @@ I explained this pretty well up above, but just to recap, I want to get rid of a
 
 ### No HLT
 
-Not sure why I never wired this up, but there we go. I just need to AND the incoming clock signal with the ~HLT signal and that should do the trick! Right?!
+Not sure why I never wired this up, but there we go. I just need to `AND` the incoming clock signal with the `~HLT` signal and that should do the trick! Right?!
 
 ### Power-On/Reset
 
-Without the Arduino loader I'm gonna need a way to set the IR, FLAGS, PC and T-State to a known state before starting to execute the code from ROM. There are a few decent IC's around that can help with this that I've heard of, but I haven't done much research yet.
+Without the Arduino loader I'm gonna need a way to set the `IR`, Flags, `PC` and T-State to a known state before starting to execute the code from ROM. There are a few decent IC's around that can help with this that I've heard of, but I haven't done much research yet.
 
 ### Replace Sign Flag with Overflow Flag
 
-Currently the MSB of the last ALU result is latched in as the sign flag, which works, but I don't really care about it that much.
+Currently the most-significant-bit (MSB) of the last ALU result is latched in as the sign flag, which works, but I don't really care about it that much.
 
 I kind of think that an overflow flag (`V`) would be better and more useful. Then you could see if your ALU result went out of a representable range. It takes a couple more gates to implement but it's not too bad.
 
@@ -497,14 +497,14 @@ This project has been a really long time in the works, and required a huge amoun
 
 A project like this is potentially a huge rabbit hole. The hardest part is knowing when to stop adding features. I came super close to adding a stack and stack pointer to WCPU-1, but in the end I feel like then I'd want to have more RAM, maybe banking, and then GPIO etc etc etc it just never ends. So knowing where to cut it off is a good idea. Keep that scope creep to a minimum!
 
-I learned an astronomical amount via this project and is has been super rewarding so far, and I think it will continue to be ☺️.
+I learned an astronomical amount via this project and it's been super rewarding so far, and I think it will continue to be ☺️.
 
-For the next project, before buying a bunch of things or building another huge jungle of wires in service of WCPU-2, I'm going to have a look at FPGA development, and try build the WCPU-1 on there. From there hopefully I can use it to rapidly prototype WCPU-2 and get the design totally finalized before getting into real components.
+For the next project, before buying a bunch of things or building another huge jungle of wires in service of WCPU-2, I'm going to have a look at FPGA development, and try to build the WCPU-1 on there. From there hopefully I can use it to rapidly prototype WCPU-2 and get the design totally finalized before getting into real components.
 
 ## Now Let's Talk About PCBWay!
 
 {{< alert "info" >}}
-**Disclosure**: [PCBWay](https://pcbway.com) reached out to sponsor this project. They provided the PCB fabrication and shipping for the boards described in this section for free. However they wanted me to be as honest as possible.
+**Disclosure**: [PCBWay](https://pcbway.com) reached out to sponsor this project. They provided the PCB fabrication and shipping for the boards described in this section for free. However, they wanted me to be as honest as possible.
 
 All opinions, mistakes, and backwards LEDs are my own.
 {{< /alert >}}
