@@ -17,15 +17,15 @@
         <div class="article-content prose">
       {{- end }}
         {{ .Content }}
-        {{- if and .Site.Params.article.sharingLinks (eq .Section "posts") }}
-          {{- partial "sharing-links.html" . -}}
-        {{- end }}
         {{- if and (.Site.Params.article.showComments | default false) (eq .Section "posts") }}
           {{- if templates.Exists "partials/comments.html" }}
             <div class="comments">
               {{- partial "comments.html" . -}}
             </div>
           {{- end }}
+        {{- end }}
+        {{- if and .Site.Params.article.sharingLinks (eq .Section "posts") }}
+          {{- partial "sharing-links.html" . -}}
         {{- end }}
       </div>
       {{- if $showToc }}

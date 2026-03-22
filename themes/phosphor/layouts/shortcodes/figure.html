@@ -35,14 +35,13 @@
   {{- with $link }}</a>{{ end -}}
   {{- if or $title $caption $attr }}
     <figcaption>
-      {{- with $title }}<h4>{{ . }}</h4>{{ end -}}
+      {{- with $title }}{{ . }}{{ end -}}
+      {{- if and $title (or $caption $attr) }} {{ end -}}
       {{- if or $caption $attr -}}
-        <p>
-          {{- with $caption }}{{ . | markdownify }}{{ end -}}
-          {{- with $attrlink }}<a href="{{ . }}">{{ end -}}
-          {{- with $attr }}{{ . | markdownify }}{{ end -}}
-          {{- with $attrlink }}</a>{{ end -}}
-        </p>
+        {{- with $caption }}{{ . | markdownify }}{{ end -}}
+        {{- with $attrlink }}<a href="{{ . }}">{{ end -}}
+        {{- with $attr }}{{ . | markdownify }}{{ end -}}
+        {{- with $attrlink }}</a>{{ end -}}
       {{- end -}}
     </figcaption>
   {{- end }}
