@@ -1880,9 +1880,6 @@ esp-web-install-button button:hover {
   --kommentar-bg: var(--bg);
   --kommentar-owner-color: var(--h1);
   --kommentar-verified-color: var(--accent);
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border);
 }
 
 /* Owner comments: pink border + pink author name */

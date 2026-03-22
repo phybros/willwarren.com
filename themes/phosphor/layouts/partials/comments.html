@@ -1,18 +1,13 @@
 {{/*
-  Kommentar comments widget.
-  Reads config from [params.kommentar] in config.toml / params.toml.
+Kommentar comments widget.
+Reads config from [params.kommentar] in config.toml / params.toml.
 */}}
+<h2>Comments</h2>
 {{ $slug := .Page.File.ContentBaseName }}
 {{ with .Site.Params.kommentar }}
-<div id="kommentar"
-  data-api-url="{{ .apiUrl }}"
-  data-bucket-url="{{ .bucketUrl }}"
-  data-slug="{{ $slug }}"
-  {{ with .cognitoDomain }}data-cognito-domain="{{ . }}"{{ end }}
-  {{ with .cognitoClientId }}data-cognito-client-id="{{ . }}"{{ end }}
-  {{ with .formMessage }}data-form-message="{{ . }}"{{ end }}
-  data-collapsible
-></div>
+<div id="kommentar" data-api-url="{{ .apiUrl }}" data-bucket-url="{{ .bucketUrl }}" data-slug="{{ $slug }}" {{ with
+    .cognitoDomain }}data-cognito-domain="{{ . }}" {{ end }} {{ with .cognitoClientId }}data-cognito-client-id="{{ . }}"
+    {{ end }} {{ with .formMessage }}data-form-message="{{ . }}" {{ end }} data-collapsible></div>
 {{ $css := resources.Get "css/kommentar.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 {{ end }}
