@@ -527,11 +527,13 @@ html.light .moon-icon {
 }
 
 .prose pre {
-  scrollbar-width: none;           /* Firefox */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .prose pre::-webkit-scrollbar {
-  display: none;                   /* Chrome, Safari, Edge */
+  display: none;
+  /* Chrome, Safari, Edge */
 }
 
 .prose pre code {
@@ -1862,11 +1864,81 @@ esp-web-install-button button:hover {
   margin-top: 1rem;
 }
 
-/* ===== Comments ===== */
-.comments {
+/* ===== Comments (Kommentar widget overrides) ===== */
+/* Base styles come from kommentar.css — these map Phosphor's theme to it */
+
+#kommentar {
+  --kommentar-accent: var(--accent);
+  --kommentar-surface: var(--surface);
+  --kommentar-border: var(--border);
+  --kommentar-radius: var(--radius);
+  --kommentar-radius-sm: var(--radius-sm);
+  --kommentar-text: var(--text);
+  --kommentar-text-secondary: var(--text-secondary);
+  --kommentar-text-faint: var(--text-faint);
+  --kommentar-font: var(--font-body);
+  --kommentar-bg: var(--bg);
+  --kommentar-owner-color: var(--h1);
+  --kommentar-verified-color: var(--accent);
   margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid var(--border);
+}
+
+/* Owner comments: pink border + pink author name */
+.kommentar-owner {
+  border-color: rgba(244, 114, 182, 0.25);
+}
+
+.kommentar-owner .kommentar-author {
+  color: var(--h1);
+}
+
+.kommentar-owner-badge {
+  color: var(--h1);
+  background: rgba(244, 114, 182, 0.1);
+}
+
+.kommentar-verified-badge {
+  background: rgba(34, 211, 238, 0.1);
+}
+
+/* Focus ring uses Phosphor's accent */
+.kommentar-form-group input[type="text"]:focus,
+.kommentar-form-group textarea:focus {
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.15);
+}
+
+/* Hover uses Phosphor's brighter border */
+.kommentar-form-group input[type="text"]:hover,
+.kommentar-form-group textarea:hover {
+  border-color: var(--border-bright);
+}
+
+.kommentar-login-btn:hover,
+.kommentar-logout-btn:hover {
+  border-color: var(--border-bright);
+}
+
+/* Reply button hover uses Phosphor surface-hover */
+.kommentar-reply-btn:hover {
+  background: var(--surface-hover);
+}
+
+/* Toggle button styled as Phosphor btn */
+.kommentar-toggle-btn {
+  padding: 0.55rem 1.1rem;
+  font-weight: 500;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.kommentar-toggle-btn:hover {
+  border-color: var(--border-bright);
+  background: var(--surface-hover);
 }
 
 /* ===== Responsive ===== */

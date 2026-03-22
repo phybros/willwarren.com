@@ -1,0 +1,387 @@
+/*
+ * Kommentar — default stylesheet
+ *
+ * To theme the widget, set --kommentar-* custom properties on #kommentar
+ * (or any ancestor). Every rule uses var(--kommentar-X, <fallback>) so your
+ * overrides always win regardless of stylesheet load order.
+ *
+ * Available custom properties:
+ *   --kommentar-font            (default: inherit)
+ *   --kommentar-accent          (default: #2563eb)
+ *   --kommentar-bg              (default: transparent)
+ *   --kommentar-surface         (default: #f9fafb)
+ *   --kommentar-border          (default: #e5e7eb)
+ *   --kommentar-radius          (default: 0.5rem)
+ *   --kommentar-radius-sm       (default: 0.25rem)
+ *   --kommentar-text            (default: inherit)
+ *   --kommentar-text-secondary  (default: #6b7280)
+ *   --kommentar-text-faint      (default: #9ca3af)
+ *   --kommentar-verified-color  (default: #16a34a)
+ *   --kommentar-owner-color     (default: #2563eb)
+ *   --kommentar-reply-indent    (default: 1.5rem)
+ *
+ * This file is optional — kommentar.js works without it. Use it as-is,
+ * override specific rules, or write your own from scratch.
+ */
+
+#kommentar {
+  font-family: var(--kommentar-font, inherit);
+  color: var(--kommentar-text, inherit);
+}
+
+/* ---- Comments list ---- */
+
+.kommentar-comments-list:empty {
+  display: none;
+}
+
+.kommentar-empty,
+.kommentar-error {
+  color: var(--kommentar-text-secondary, #6b7280);
+  font-size: 0.95rem;
+}
+
+/* ---- Individual comment ---- */
+
+.kommentar-comment {
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  background: var(--kommentar-surface, #f9fafb);
+  border: 1px solid var(--kommentar-border, #e5e7eb);
+  border-radius: var(--kommentar-radius, 0.5rem);
+}
+
+/* ---- Comment header ---- */
+
+.kommentar-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.kommentar-author {
+  font-weight: 600;
+  color: var(--kommentar-text, inherit);
+}
+
+.kommentar-time {
+  font-size: 0.85rem;
+  color: var(--kommentar-text-faint, #9ca3af);
+  margin-left: auto;
+}
+
+/* ---- Badges ---- */
+
+.kommentar-badge {
+  display: inline-block;
+  margin-left: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.1rem 0.35rem;
+  border-radius: var(--kommentar-radius-sm, 0.25rem);
+  vertical-align: baseline;
+}
+
+.kommentar-verified-badge {
+  color: var(--kommentar-verified-color, #16a34a);
+  background: rgba(22, 163, 74, 0.1);
+}
+
+.kommentar-owner-badge {
+  color: var(--kommentar-owner-color, #2563eb);
+  background: rgba(37, 99, 235, 0.1);
+}
+
+/* Owner comment styling */
+
+.kommentar-owner {
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.kommentar-owner .kommentar-author {
+  color: var(--kommentar-owner-color, #2563eb);
+}
+
+/* ---- Comment body ---- */
+
+.kommentar-body {
+  color: var(--kommentar-text-secondary, #6b7280);
+  line-height: 1.6;
+}
+
+.kommentar-body p {
+  margin: 0 0 0.5em;
+}
+
+.kommentar-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Comment footer & reply button ---- */
+
+.kommentar-footer {
+  margin-top: 0.5rem;
+}
+
+.kommentar-reply-btn {
+  background: none;
+  border: 1px solid transparent;
+  color: var(--kommentar-text-faint, #9ca3af);
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+  font-family: var(--kommentar-font, inherit);
+  border-radius: var(--kommentar-radius-sm, 0.25rem);
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.kommentar-reply-btn:hover {
+  color: var(--kommentar-accent, #2563eb);
+  background: var(--kommentar-surface, #f9fafb);
+  border-color: var(--kommentar-border, #e5e7eb);
+}
+
+/* ---- Nested replies ---- */
+
+.kommentar-replies {
+  margin-left: var(--kommentar-reply-indent, 1.5rem);
+  padding-left: 1rem;
+  border-left: 2px solid var(--kommentar-border, #e5e7eb);
+}
+
+/* ---- Reply form (inline) ---- */
+
+.kommentar-reply-form {
+  margin-top: 0.75rem;
+  padding: 1rem;
+  background: var(--kommentar-bg, transparent);
+  border: 1px solid var(--kommentar-border, #e5e7eb);
+  border-radius: var(--kommentar-radius-sm, 0.25rem);
+}
+
+.kommentar-reply-form .kommentar-form-group {
+  margin-bottom: 0.75rem;
+}
+
+.kommentar-reply-form .kommentar-submit {
+  margin-top: 0;
+}
+
+.kommentar-reply-success {
+  color: var(--kommentar-text-secondary, #6b7280);
+  font-size: 0.9rem;
+}
+
+.kommentar-reply-error {
+  color: #dc2626;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* ---- Auth bar ---- */
+
+.kommentar-auth-bar {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--kommentar-text-secondary, #6b7280);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.kommentar-login-btn,
+.kommentar-logout-btn {
+  background: none;
+  border: 1px solid var(--kommentar-border, #e5e7eb);
+  color: var(--kommentar-text-secondary, #6b7280);
+  cursor: pointer;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+  font-family: var(--kommentar-font, inherit);
+  border-radius: var(--kommentar-radius-sm, 0.25rem);
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.kommentar-login-btn:hover,
+.kommentar-logout-btn:hover {
+  color: var(--kommentar-accent, #2563eb);
+  background: var(--kommentar-surface, #f9fafb);
+}
+
+/* ---- Form toggle (collapsible mode) ---- */
+
+.kommentar-form-toggle {
+  margin-top: 1.5rem;
+}
+
+.kommentar-toggle-btn {
+  list-style: none;
+  width: fit-content;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--kommentar-accent, #2563eb);
+  border: 1px solid var(--kommentar-border, #e5e7eb);
+  border-radius: var(--kommentar-radius, 0.5rem);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.kommentar-toggle-btn:hover {
+  background: var(--kommentar-surface, #f9fafb);
+}
+
+.kommentar-toggle-btn::-webkit-details-marker {
+  display: none;
+}
+
+.kommentar-toggle-btn::marker {
+  display: none;
+  content: "";
+}
+
+/* Non-collapsible wrapper */
+
+.kommentar-form-wrapper {
+  margin-top: 1.5rem;
+}
+
+/* ---- Comment form ---- */
+
+.kommentar-form {
+  margin-top: 1.25rem;
+  padding: 1.5rem;
+  background: var(--kommentar-surface, #f9fafb);
+  border: 1px solid var(--kommentar-border, #e5e7eb);
+  border-radius: var(--kommentar-radius, 0.5rem);
+}
+
+.kommentar-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.kommentar-form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--kommentar-text-secondary, #6b7280);
+}
+
+.kommentar-form-group input[type="text"],
+.kommentar-form-group textarea {
+  display: block;
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  background: var(--kommentar-bg, #fff);
+  color: var(--kommentar-text, inherit);
+  border: 1px solid var(--kommentar-border, #e5e7eb);
+  border-radius: var(--kommentar-radius-sm, 0.25rem);
+  font-family: var(--kommentar-font, inherit);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.kommentar-form-group input[type="text"]:hover,
+.kommentar-form-group textarea:hover {
+  border-color: var(--kommentar-text-faint, #9ca3af);
+}
+
+.kommentar-form-group input[type="text"]:focus,
+.kommentar-form-group textarea:focus {
+  outline: none;
+  border-color: var(--kommentar-accent, #2563eb);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+}
+
+.kommentar-form-group input[type="text"]::placeholder,
+.kommentar-form-group textarea::placeholder {
+  color: var(--kommentar-text-faint, #9ca3af);
+}
+
+.kommentar-form-group textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+/* ---- Form message ---- */
+
+.kommentar-form-message {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--kommentar-text-faint, #9ca3af);
+}
+
+/* ---- Submit button ---- */
+
+.kommentar-submit {
+  display: inline-block;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: var(--kommentar-font, inherit);
+  color: #fff;
+  background: var(--kommentar-accent, #2563eb);
+  border: 1px solid transparent;
+  border-radius: var(--kommentar-radius-sm, 0.25rem);
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-top: 0.25rem;
+}
+
+.kommentar-submit:hover {
+  opacity: 0.85;
+}
+
+/* ---- Loading spinner ---- */
+
+.kommentar-loading {
+  pointer-events: none;
+  position: relative;
+  padding-left: 2.2rem;
+}
+
+.kommentar-loading::before {
+  content: "";
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  width: 0.9em;
+  height: 0.9em;
+  margin-top: -0.45em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: kommentar-spin 0.6s linear infinite;
+}
+
+@keyframes kommentar-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- Disabled fields ---- */
+
+.kommentar-form-group input:disabled,
+.kommentar-form-group textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---- Status message ---- */
+
+.kommentar-status {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--kommentar-radius-sm, 0.25rem);
+  font-size: 0.9rem;
+  color: var(--kommentar-text-secondary, #6b7280);
+  background: var(--kommentar-surface, #f9fafb);
+  border: 1px solid var(--kommentar-border, #e5e7eb);
+}

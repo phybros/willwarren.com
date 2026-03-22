@@ -58,6 +58,13 @@ showWordCount = false
 showComments = true
 sharingLinks = ["facebook", "mastodon", "bluesky", "reddit", "linkedin"]
 
+[kommentar]
+apiUrl = "https://trj7mjckc3.execute-api.us-east-1.amazonaws.com/prod/comments"
+bucketUrl = "https://kommentar-publicbucket-k2hm5mdwgywm.s3.us-east-1.amazonaws.com/comments"
+cognitoDomain = "kommentar-87e1cd40-261f-11f1-9515-122419eb6ddf.auth.us-east-1.amazoncognito.com"
+cognitoClientId = "5bdor8gg9prm0uad2mohrhs87n"
+formMessage = "All comments will be moderated"
+
 [list]
 showBreadcrumbs = true
 showSummary = false
