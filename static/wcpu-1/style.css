@@ -1,0 +1,638 @@
+/* style.css — WCPU-1 Emulator retro dark theme */
+
+:root {
+    --bg:          #0a0a0a;
+    --panel:       #141414;
+    --panel-border:#2a2a2a;
+    --text:        #b0a890;
+    --text-dim:    #605848;
+    --text-bright: #d8d0b8;
+    --accent:      #cc8800;
+    --accent-dim:  #553300;
+    --green:       #00cc66;
+    --green-dim:   #003818;
+    --red:         #cc3333;
+    --led-off:     #281800;
+    --led-on:      #ff6600;
+    --led-glow:    #ff440066;
+    --led-green-off: #0a1a0a;
+    --led-green-on:  #00ff44;
+    --led-green-glow:#00ff4466;
+    --led-red-off:   #1a0a0a;
+    --led-red-on:    #ff2222;
+    --highlight:   #332200;
+    --highlight-pc:#1a2a00;
+    --highlight-mar:#001a2a;
+    --font:        'IBM Plex Mono', 'Fira Code', 'Cascadia Code', 'Consolas', 'Monaco', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 13px;
+    line-height: 1.4;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ── Layout ─────────────────────────────────────────────── */
+
+#app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Header */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 4px;
+}
+
+#header h1 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#header .subtitle {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-left: 12px;
+}
+
+/* Controls bar */
+#controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 4px;
+    flex-wrap: wrap;
+}
+
+#controls button {
+    font-family: var(--font);
+    font-size: 12px;
+    padding: 5px 14px;
+    border: 1px solid var(--panel-border);
+    border-radius: 3px;
+    background: #1e1e1e;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+#controls button:hover {
+    background: #2a2a2a;
+    border-color: var(--accent-dim);
+    color: var(--text-bright);
+}
+
+#controls button:active {
+    background: #333;
+}
+
+#controls button.active {
+    background: var(--accent-dim);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+#controls .sep {
+    width: 1px;
+    height: 24px;
+    background: var(--panel-border);
+    margin: 0 4px;
+}
+
+#controls label {
+    font-size: 11px;
+    color: var(--text-dim);
+}
+
+#speed-slider {
+    width: 120px;
+    accent-color: var(--accent);
+}
+
+#speed-display {
+    font-size: 11px;
+    color: var(--accent);
+    min-width: 60px;
+}
+
+#counters {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-left: auto;
+}
+
+/* Main area: two columns */
+#main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+/* Panel shared style */
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 4px;
+    padding: 12px;
+}
+
+.panel h2 {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--panel-border);
+}
+
+/* ── Left column ──────────────────────────────────────── */
+
+#left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Register display */
+.reg-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 0;
+}
+
+.reg-row.bus-row {
+    padding: 6px 0;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--panel-border);
+}
+
+.reg-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-dim);
+    width: 32px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.reg-row.bus-row .reg-name {
+    color: var(--green);
+}
+
+.led-group {
+    display: flex;
+    gap: 3px;
+    flex-shrink: 0;
+}
+
+.led {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--led-off);
+    border: 1px solid #1a1000;
+    transition: background 0.05s, box-shadow 0.05s;
+}
+
+.led.on {
+    background: var(--led-on);
+    box-shadow: 0 0 4px var(--led-on), 0 0 8px var(--led-glow);
+    border-color: #663300;
+}
+
+.led.green {
+    background: var(--led-green-off);
+    border-color: #0a1a0a;
+}
+
+.led.green.on {
+    background: var(--led-green-on);
+    box-shadow: 0 0 4px var(--led-green-on), 0 0 8px var(--led-green-glow);
+    border-color: #006622;
+}
+
+.led.red {
+    background: var(--led-red-off);
+    border-color: #1a0a0a;
+}
+
+.led.red.on {
+    background: var(--led-red-on);
+    box-shadow: 0 0 4px var(--led-red-on), 0 0 8px #ff222266;
+    border-color: #662222;
+}
+
+.reg-hex {
+    font-size: 12px;
+    color: var(--text-bright);
+    width: 32px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.reg-dec {
+    font-size: 12px;
+    color: var(--text-dim);
+    width: 28px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.reg-label {
+    font-size: 11px;
+    color: var(--accent);
+    margin-left: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ── Right column ─────────────────────────────────────── */
+
+#right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Control signals panel */
+#signals-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 3px;
+}
+
+.sig {
+    font-size: 10px;
+    padding: 2px 4px;
+    text-align: center;
+    color: var(--text-dim);
+    background: #0e0e0e;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    transition: all 0.05s;
+}
+
+.sig.active {
+    color: var(--green);
+    background: var(--green-dim);
+    border-color: #005522;
+    text-shadow: 0 0 4px var(--green);
+}
+
+/* Flags & T-state */
+#status-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 4px;
+}
+
+.flag-display {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+}
+
+.flag-label {
+    color: var(--text-dim);
+    font-weight: 600;
+}
+
+#tstate-display {
+    font-size: 12px;
+    color: var(--accent);
+}
+
+/* ALU panel */
+#alu-section {
+    margin-top: 4px;
+}
+
+#alu-mode {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 4px;
+}
+
+/* Output display */
+#output-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+#output-value {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--led-on);
+    text-align: center;
+    padding: 12px;
+    background: #0e0800;
+    border: 1px solid var(--accent-dim);
+    border-radius: 4px;
+    text-shadow: 0 0 12px var(--led-glow);
+    margin-bottom: 4px;
+}
+
+#output-hex {
+    font-size: 14px;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+#output-history-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+#output-history {
+    max-height: 300px;
+    overflow-y: auto;
+    font-size: 11px;
+    color: var(--text-dim);
+    padding: 4px 6px;
+    background: #0a0a08;
+    border-radius: 3px;
+    border: 1px solid #1a1a18;
+}
+
+#output-history .entry {
+    padding: 1px 0;
+}
+
+#output-history .entry.newest {
+    color: var(--led-on);
+    animation: flash-new 0.6s ease-out;
+}
+
+@keyframes flash-new {
+    0%   { background: #442200; color: #ffaa44; }
+    100% { background: transparent; }
+}
+
+#output-history .entry::before {
+    content: '> ';
+    color: var(--accent-dim);
+}
+
+/* ── Bottom area (merged into #main columns) ─────────── */
+
+/* Program editor */
+#editor-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+#code-editor {
+    width: 100%;
+    min-height: 200px;
+    flex: 1;
+    resize: vertical;
+    font-family: var(--font);
+    font-size: 12px;
+    line-height: 1.5;
+    background: #0e0e0c;
+    color: var(--text-bright);
+    border: 1px solid var(--panel-border);
+    border-radius: 3px;
+    padding: 8px;
+    tab-size: 2;
+    outline: none;
+}
+
+#code-editor:focus {
+    border-color: var(--accent-dim);
+}
+
+#editor-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    align-items: center;
+}
+
+#editor-controls button {
+    font-family: var(--font);
+    font-size: 12px;
+    padding: 5px 14px;
+    border: 1px solid var(--panel-border);
+    border-radius: 3px;
+    background: #1e1e1e;
+    color: var(--text);
+    cursor: pointer;
+}
+
+#editor-controls button:hover {
+    background: var(--accent-dim);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+#example-select {
+    font-family: var(--font);
+    font-size: 12px;
+    padding: 4px 8px;
+    background: #1e1e1e;
+    color: var(--text);
+    border: 1px solid var(--panel-border);
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+}
+
+#asm-status {
+    font-size: 11px;
+    margin-top: 6px;
+    min-height: 18px;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+#asm-status.error {
+    color: var(--red);
+}
+
+#asm-status.ok {
+    color: var(--green);
+}
+
+/* Memory view */
+#memory-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+#memory-grid {
+    font-size: 11px;
+    line-height: 1.6;
+    max-height: 335px;
+    padding: 4px;
+    background: #0a0a08;
+    border: 1px solid #1a1a18;
+    border-radius: 3px;
+}
+
+.mem-row {
+    white-space: pre;
+}
+
+.mem-addr {
+    color: var(--text-dim);
+}
+
+.mem-byte {
+    color: var(--text);
+    padding: 0 5px;
+}
+
+.mem-byte.is-pc {
+    color: var(--green);
+    background: var(--highlight-pc);
+    border-radius: 2px;
+}
+
+.mem-byte.is-mar {
+    color: #44aaff;
+    background: var(--highlight-mar);
+    border-radius: 2px;
+}
+
+.mem-byte.is-sp {
+    color: var(--accent);
+    background: var(--highlight);
+    border-radius: 2px;
+}
+
+.mem-byte.is-zero {
+    color: #2a2820;
+}
+
+.mem-rom {
+    border-left: 2px solid var(--accent-dim);
+    padding-left: 4px;
+}
+
+.mem-ram {
+    border-left: 2px solid #1a3300;
+    padding-left: 4px;
+}
+
+/* Memory legend */
+#memory-legend {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+    padding-top: 6px;
+    border-top: 1px solid var(--panel-border);
+    font-size: 10px;
+    color: var(--text-dim);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.legend-swatch {
+    display: inline-block;
+    width: 14px;
+    height: 10px;
+    border-radius: 2px;
+    font-size: 0;
+}
+
+.legend-swatch.is-pc {
+    background: var(--highlight-pc);
+    border: 1px solid var(--green);
+}
+
+.legend-swatch.is-mar {
+    background: var(--highlight-mar);
+    border: 1px solid #44aaff;
+}
+
+.legend-swatch.is-sp {
+    background: var(--highlight);
+    border: 1px solid var(--accent);
+}
+
+/* Region labels */
+.mem-region-label {
+    font-size: 9px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 2px 6px;
+    margin-top: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--panel-border);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* Keyboard shortcut hints */
+.hint {
+    font-size: 10px;
+    color: var(--text-dim);
+    padding: 2px 5px;
+    background: #1a1a1a;
+    border-radius: 2px;
+    border: 1px solid var(--panel-border);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    #main {
+        grid-template-columns: 1fr;
+    }
+}
