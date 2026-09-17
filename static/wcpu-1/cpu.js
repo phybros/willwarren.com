@@ -46,7 +46,7 @@ const FLAG_Z = 0b01;
 const OPCODE_NAMES = {
     0x00:'NOP',  0x01:'OUTA', 0x02:'OUTB', 0x03:'OUTX', 0x04:'OUTG',
     0x05:'TAX',  0x06:'TXA',  0x07:'TAB',  0x08:'TBA',  0x09:'TAG',
-    0x0A:'TGA',  0x0B:'TSX',  0x0C:'TXS',  0x0D:'LSP#', 0x0E:'LSP',
+    0x0A:'TGA',  0x0B:'TSX',  0x0C:'TXS',  0x0D:'LSP#', 0x0E:'LSP', 0x0F:'SWAB',
     0x10:'ADD#', 0x11:'ADD',  0x12:'ADDB', 0x13:'ADDX', 0x14:'ADDG',
     0x15:'SUB#', 0x16:'SUB',  0x17:'SUBB', 0x18:'SUBX', 0x19:'SUBG',
     0x1A:'CMP#', 0x1B:'CMP',  0x1C:'CMPB', 0x1D:'CMPX', 0x1E:'CMPG',
@@ -110,6 +110,7 @@ function generateMicrocode() {
     set(0x0C, [CO|MI, RO|II|CE, XO|SI|N]);                                    // TXS
     set(0x0D, [CO|MI, RO|II|CE, CO|MI, RO|SI|CE|N]);                          // LSP imm
     set(0x0E, [CO|MI, RO|II|CE, CO|MI, RO|MI|CE, RO|SI|N]);                   // LSP abs
+    set(0x0F, [CO|MI, RO|II|CE, SD, SO|MI, RI|AO, AI|BO, RO|BI|SU|N]);        // SWAB
 
     // ── 0x1_ ALU (3x5 grid) ──
     set(0x10, [CO|MI, RO|II|CE, CO|MI, RO|BI|CE, AI|EO|FI|N]);               // ADD imm

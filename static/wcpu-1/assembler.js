@@ -17,6 +17,7 @@ const ASM_INSTRUCTIONS = {
     'tsx': { impl: 0x0B },
     'txs': { impl: 0x0C },
     'lsp': { imm: 0x0D, abs: 0x0E },
+    'swab': { impl: 0x0F },
     // 0x1_ — ALU
     'add': { imm: 0x10, abs: 0x11 },
     'addb': { impl: 0x12 },
@@ -340,6 +341,46 @@ mult_done:
 mult_carried:
   lda #1          ; return: carried
   rts`,
+    'Greatest Common Divisor': `; Greatest Common Divisor
+; subtraction-based Euclidean algorithm
+;
+; Input:
+;   A = first operand
+;   B = second operand
+;
+; Output:
+;   A = GCD
+
+init:
+    lsp #$FF          ; SWAB requires initialized SP
+
+    lda #128
+    ldb #64
+
+gcd:
+    cmpb
+
+    jz done           ; A == B -> GCD found
+    jc greater_than   ; A > B  (equality already excluded)
+
+    ; A < B
+    ; B := B - A
+    swab              ; A = old B, B = old A
+    subb              ; A = old B - old A
+    swab              ; A = old A, B = old B - old A
+    jmp gcd
+
+greater_than:
+    ; A := A - B
+    subb
+    jmp gcd
+
+done:
+    outa              ; A == B, so A is the GCD
+
+inf:
+    jmp inf
+    `
 };
 
 window.assemble = assemble;
